@@ -1,0 +1,4 @@
+ if (!$query) {
+                        printf("Error: %s\n", mysqli_error($koneksi));
+                        exit();
+                    }  
