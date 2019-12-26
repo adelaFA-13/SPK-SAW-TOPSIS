@@ -23,11 +23,14 @@
                     <!-- semua class yang ada di nav-itemm id, data toggle harus sesuai sama id mereka ya!-->
                       <div class="nav nav-tabs" id="nav-tab" role="tablist">
                         <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Kode Kriteria</a>
-                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
-                        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
-                        <a class="nav-item nav-link" id="nav-bukan-tab" data-toggle="tab" href="#nav-bukan" role="tab" aria-controls="nav-bukan" aria-selected="false">step </a>
-                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
-                        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
+                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Step 1</a>
+                        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Step 2</a>
+                        <a class="nav-item nav-link" id="nav-bukan-tab" data-toggle="tab" href="#nav-bukan" role="tab" aria-controls="nav-bukan" aria-selected="false">Step 3 </a>
+                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Step 4</a>
+                        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Step 5</a>
+                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Step 6</a>
+                        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Step 7</a>
+                        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Ranking</a>
                       </div>
                     </nav>
                     <div class="tab-content" id="nav-tabContent">
@@ -39,12 +42,44 @@
                                        <tr align="center">
                                            <th>Kode</th>
                                            <th>Nama Kriteria</th>
+                                           <th>Jenis</th>
                                        </tr>
                                    </thead>
                                    <tbody>
                                        <tr>
-                                           <td>A</td>
-                                           <td>B</td>
+                                           <td>C1</td>
+                                           <td>Harga</td>
+                                           <td>Cost</td>
+                                       </tr>
+                                       <tr>
+                                           <td>C2</td>
+                                           <td>Paket</td>
+                                           <td>Benefit</td>
+                                       </tr>
+                                       <tr>
+                                           <td>C3</td>
+                                           <td>Keamanan</td>
+                                           <td>Benefit</td>
+                                       </tr>
+                                       <tr>
+                                           <td>C4</td>
+                                           <td>Fasilitas</td>
+                                           <td>Benefit</td>
+                                       </tr>
+                                       <tr>
+                                           <td>C5</td>
+                                           <td>Pelayanan</td>
+                                           <td>Benefit</td>
+                                       </tr>
+                                       <tr>
+                                           <td>C6</td>
+                                           <td>Sertifikat</td>
+                                           <td>Benefit</td>
+                                       </tr>
+                                       <tr>
+                                           <td>C7</td>
+                                           <td>Testimoni</td>
+                                           <td>Benefit</td>
                                        </tr>
                                    </tbody>
                               </table>

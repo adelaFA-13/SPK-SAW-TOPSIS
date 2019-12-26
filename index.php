@@ -39,6 +39,15 @@ foreach ($include as $key => $value) {
 }
 
 // <!-- Load Footer -->
-include 'halaman/footer.php'; 
+if($_SESSION['level'] == 'pengguna'){
+	
+	include 'halaman/footer_pengguna.php'; 
+}else if($_SESSION['level'] == 'member'){
+	include 'halaman/footer_pengguna.php';
+}
+else{
+	include 'halaman/footer.php'; 
+}
+
 
 ?>

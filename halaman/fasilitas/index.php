@@ -1,14 +1,14 @@
 <?php
 include 'config/koneksi.php';
 $id=$_SESSION['user_id'];
-$sql = "SELECT MAX(`fasilitas_id`) FROM `tbl_data_fasilitas` WHERE `travel_id`='$id'";
+$sql = "SELECT MAX(`fasilitas_id`) FROM `tbl_data_fasilitas`";
 $query=mysqli_query($koneksi,$sql);
 
 $id_fasilitas= mysqli_fetch_array($query);
 if($id_fasilitas){
     $nilai=substr($id_fasilitas[0],1);
     $kode = (int)$nilai;
-
+    echo $kode;
     $kode=$kode+1;
     $auto_kode = "F".str_pad($kode,4,"0", STR_PAD_LEFT);
 } else{
@@ -51,7 +51,7 @@ if($id_fasilitas){
                                         <a href="data_agent_edit.html" class="btn btn-xs btn-warning" title="Edit">
                                             <i class="fas fa-pen"></i>
                                         </a>
-                                        <a href="data_agent_delete.html" class="btn btn-xs btn-danger" title="delete" onclick="retrun confirm('Apakah anda yakin ingin menghapus?')">
+                                        <a href="data_agent_delete.html" class="btn btn-xs btn-danger" title="delete" onclick="retrun confirm('Apakah anda yakin ingin menghapus?');">
                                             <i class="fas fa-trash-alt"></i>
                                         </a>
                                     </td>

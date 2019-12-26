@@ -17,7 +17,7 @@ if(mysqli_query($koneksi,$sql)){
 }else{
     $_SESSION['pesan'] = "Gagal menambahkan data";
     
-    header('location:/spk_tugasakhir/register_user.php');
+    header('location:/spk_tugasakhir1/register_user.php');
 }
 
 ?>

@@ -2,18 +2,19 @@
 
 include 'config/koneksi.php';
 $id=$_SESSION['user_id'];
-$sql = "SELECT MAX(`pelayanan_id`) FROM `tbl_data_pelayanan` WHERE `travel_id`='$id'";
+$sql = "SELECT MAX(`pelayanan_id`) FROM `tbl_data_pelayanan`";
 $query=mysqli_query($koneksi,$sql);
 
 $id_pelayanan= mysqli_fetch_array($query);
 if($id_pelayanan){
-    $nilai=substr($id_pelayanan[0],1);
-    $kode = (int)$nilai;
-
-    $kode=$kode+1;
-    $auto_kode = "PE".str_pad($kode,4,"0", STR_PAD_LEFT);
-} else{
-    $auto_kode ="PE001";
+    $nilai =substr($id_pelayanan[0],1);
+    $kode =(int)$nilai;
+    
+    $kode=$kode+1; 
+    echo $kode;   
+    $auto_kode = "S".str_pad($kode,4,"0",STR_PAD_LEFT);
+}else{
+    $auto_kode ='S001';
 }
 ?>
 
@@ -28,7 +29,7 @@ if($id_pelayanan){
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                        <input type="hidden" class="form-control" name="travel_id" value="<?php echo $_SESSION['travel_id']; ?>" placeholder="Nama">
+                        <input type="hidden" class="form-control" name="travel_id" value="<?php echo $_SESSION['user_id']; ?>" placeholder="Nama">
                             <table class="table table-bordered" id="dataTable" widht="100%" cellspacing="0">
                                <thead>
                                    <tr align="center">
@@ -73,7 +74,7 @@ if($id_pelayanan){
                         </div>
                         <div class="card-body">
                         <form action="config/pelayanan/proses_simpan.php" method="POST">
-                            <input type="hidden" class="form-control" name="travel_id" value="<?php echo $_SESSION['travel_id']; ?>" placeholder="Nama">
+                            <input type="hidden" class="form-control" name="travel_id" value="<?php echo $_SESSION['user_id']; ?>" placeholder="Nama">
                             <input type="hidden" class="form-control" name="pelayanan_id" value="<?php echo $auto_kode; ?>">
                                 <div class="form-row">
                                     <div class="form-group col-md-3">

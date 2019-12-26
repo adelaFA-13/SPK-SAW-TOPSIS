@@ -1,0 +1,4 @@
+SELECT tbl_data_paket.paket_data_id, tbl_jumlah_fasilitas.id_jumlah_fasilitas,tbl_data_fasilitas.nama_fasilitas, tbl_agent_travel.nama FROM tbl_jumlah_fasilitas JOIN tbl_agent_travel USING(travel_id) JOIN tbl_data_paket USING(id_jumlah_fasilitas) JOIN tbl_data_fasilitas USING(fasilitas_id) ORDER BY paket_data_id ASC, nama ASC
+
+fix melihat list nama jumlah fasilitas:
+SELECT tbl_data_paket.paket_data_id,tbl_data_paket.id_jumlah_fasilitas,tbl_data_fasilitas.fasilitas_id,tbl_data_fasilitas.nama_fasilitas FROM tbl_jumlah_fasilitas INNER JOIN tbl_data_paket USING(id_jumlah_fasilitas) INNER JOIN tbl_data_fasilitas USING(fasilitas_id) ORDER BY id_jumlah_fasilitas

@@ -52,8 +52,13 @@
 
     <!-- Page level custom scripts -->
     <script src="asset2/js/demo/datatables-demo.js"></script>
+    <script src="asset2/vendor/datatables/lisenme.js"></script>
+    <script src="asset4/js/custom.js"></script>
 
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+    <script>
+      jQuery('#dataTable').ddTableFilter();
+    </script>
     <script>
     $(document).ready(function() {
         $('#dataTables-example').DataTable({
@@ -73,8 +78,7 @@
         });
         
     });
-    </script>
-<script>
+    
     $('#add_sub').change(function(e) {
         var pilihan = $('#add_sub').val();
         if(pilihan == "Punya"){
@@ -86,17 +90,56 @@
             $('#sub_comp').remove();
         }   
   });
-</script>
-<script type="text/javascript">
-    function btn_remove(argument) {
-        var r = confirm("Are You Sure?");
-        if (r == true) {
-            argument.parentElement.parentElement.remove();
-        }
-        
-    }
+  
+  function btn_remove(argument) {
+      var r = confirm("Are You Sure?");
+      if (r == true) {
+          argument.parentnElement.parentElement.remove();
+      }
+      
+  }
+  </script>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+          $('ul li a').click(function(){
+            $('li a').removeClass("active");
+            $(this).addClass("active");
+        });
+    });
 </script>
 
+
+
+
+<script>
+  function getDataNilai(comp){
+    var nilai = comp.options[comp.selectedIndex].text;
+    // if(nilai.toLowerCase() == "--pilih--"){
+    //   return false;
+    // }
+    // $.ajax({
+    //     type: "POST",
+    //     url: hb_base_url + "consumer",
+    //     contentType: "application/json",
+    //     dataType: "json",
+    //     data: JSON.stringify({
+    //         first_name: $("#namec").val(),
+    //         last_name: $("#surnamec").val(),
+    //         email: $("#emailc").val(),
+    //         mobile: $("#numberc").val(),
+    //         password: $("#passwordc").val()
+    //     }),
+    //     success: function(response) {
+    //         console.log(response);
+    //     },
+    //     error: function(response) {
+    //         console.log(response);
+    //     }
+    // });
+  }
+
+</script> 
 </body>
 
 </html>

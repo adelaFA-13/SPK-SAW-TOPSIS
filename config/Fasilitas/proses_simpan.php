@@ -12,11 +12,11 @@ if(!empty($_POST['Fasilitasnew'])){
     
     if(mysqli_query($koneksi,$QUERY)){
         $_SESSION['pesan'] = "Berhasil tambah data program_bantuan";
-        header('location:/spk_tugasakhir/index.php?url=data_fasilitas');
+        header('location:/spk_tugasakhir1/index.php?url=data_fasilitas');
     }else{
         $_SESSION['pesan'] = "Gagal menambahkan data";
     
-        header('location:/spk_tugasakhir/index.php?url=data_paket');
+        header('location:/spk_tugasakhir1/index.php?url=data_paket');
     }
 }
 

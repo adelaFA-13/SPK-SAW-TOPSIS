@@ -17,7 +17,7 @@ if(mysqli_query($koneksi,$sql)){
 }else{
 	$_SESSION['pesan'] = "Gagal tambah data program_bantuan";
 }
-header('location:/spk_tugasakhir/index.php?url=pengaturan_agent');
+header('location:/spk_tugasakhir1/index.php?url=pengaturan_agent');
 
 
  ?>

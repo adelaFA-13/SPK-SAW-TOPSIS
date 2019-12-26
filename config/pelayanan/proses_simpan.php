@@ -12,7 +12,7 @@ $pelayanan_id=$_POST['pelayanan_id'];
 
  if(mysqli_query($koneksi,$QUERY)){
      $_SESSION['pesan'] = "Berhasil tambah data program_bantuan";
-     header('location:/spk_tugasakhir/index.php?url=data_pelayanan');
+     header('location:/spk_tugasakhir1/index.php?url=data_pelayanan');
  }else{
  	$_SESSION['pesan'] = "Gagal tambah data program_bantuan";
  }

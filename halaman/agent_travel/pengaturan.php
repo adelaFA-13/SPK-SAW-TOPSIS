@@ -2,7 +2,11 @@
 include 'config/koneksi.php';
 $id         = $_SESSION['user_id'];
 $agent      = mysqli_query($koneksi, "select * from tbl_agent_travel WHERE travel_id='$id'");
-$row        = mysqli_fetch_array($agent);?>
+$lokasi		= mysqli_query($koneksi, "Select * from tbl_lokasi WHERE travel_id = '$id'");
+$row        = mysqli_fetch_array($agent);
+$data		=mysqli_fetch_array($lokasi);
+?>
+
 
 <!-- Begin Page Content -->
         <div class="container-fluid">
@@ -18,14 +22,26 @@ $row        = mysqli_fetch_array($agent);?>
 		                <!-- Card Body -->
 		                <div class="card-body" style="height: 45rem;">
 							<div class="row form-group mx-auto">
-								<img src="img/undraw_posting_photo.svg" width="300" class="img-profile rounded-circle text-center mx-auto" alt="Foto">
+							<?php	
+								$a = "config/agent/".$row['foto'];
+								if(file_exists($a))
+								{
+									 ?> 
+								<img src=<?php echo "config/agent/".$row['foto']; ?>  width="150" class="img-profile rounded-circle text-center mx-auto" alt="Foto">
+									 <?php 
+								}else {
+									?> <img src="img/undraw_posting_photo.svg" width="300" class="img-profile rounded-circle text-center mx-auto" alt="Foto"><?php
+								}
+								?> 
 							</div>
+							<form action="config/agent/proses_input.php" method="post" enctype="multipart/form-data">
 						  	<div class="row form-group">
-							  <a href="#" class="font-weight-bold text-primary mx-auto">Ganti Foto</a>
+							  <a class="font-weight-bold text-primary mx-auto">Ganti Foto</a>
+								<input type="file" name="foto" id="fileToUpload"></input>
 							</div>
 							<hr class="sidebar-divider">
-								<form action="config/agent/proses_input.php" method="post"> 
-										<input type="hidden" class="form-control" name="travel_id" value="<?php echo $_SESSION['travel_id']; ?>" placeholder="Nama">
+								
+										<input type="hidden" class="form-control" name="travel_id" value="<?php echo $id; ?>">
 								<div class="form-row">
 									<div class="form-group col-xl-3 text-center">
 										<label for="">Nama</label>
@@ -39,7 +55,6 @@ $row        = mysqli_fetch_array($agent);?>
 										<label for="">Alamat</label>
 									</div>
 									<div class="form-group col-xl-9">
-										
 										<input class="form-control" value="<?php echo $row['alamat']; ?>" name="alamat"  placeholder="Alamat Agent Travel"></input>
 									</div>
 								</div>
@@ -49,11 +64,19 @@ $row        = mysqli_fetch_array($agent);?>
 									</div>
 									<div class="form-group col-xl-9">
 										<!-- kalo bisa dropdown -->
-										<input type="year" class="form-control" value="<?php echo $row['thn_berdiri'];?>" name="tahun" placeholder="Tahun berdiri">
+										<input type="year" class="form-control"  value="<?php echo $row['thn_berdiri'];?>" name="tahun" placeholder="Tahun berdiri">
 									</div>
 								</div>
 								<div class="form-row">
-								<div id="dvMap" style="width: 1000px; height: 550px"></div>
+									<div class="form-group col-xl-3 text-center">
+										<label for="">Keterangan</label>
+									</div>
+									<div class="form-group col-xl-9">
+										<input class="form-control" value="<?php echo $data['keterangan']; ?>" name="keterangan"  placeholder="Alamat Agent Travel"></input>
+									</div>
+								</div>
+								<div class="form-row">
+								<div id="dvMap" class="form-control" style=" height:250px;"></div>
 								</div>
 								<div class="form-row">
                         			<div class="col lg-12" align="right">
@@ -75,7 +98,7 @@ $row        = mysqli_fetch_array($agent);?>
 		                <!-- Card Body -->
 		                <div class="card-body" style="height: 42rem;">
 		                  <form action="config/agent/proses_input_lanjutan.php" method="POST">
-						  <input type="hidden" class="form-control" name="travel_id" value="<?php echo $_SESSION['travel_id']; ?>" placeholder="Nama">
+						  <input type="hidden" class="form-control" name="travel_id" value="<?php echo $id; ?>" placeholder="Nama">
 								<div class="form-group">
 									<label for="">Nomor Izin</label>
 									<input type="text" name="no_izin" value="<?php echo $row['nomor_izin'];?>" class="form-control" placeholder="Nomor Izin">
@@ -118,11 +141,11 @@ $row        = mysqli_fetch_array($agent);?>
     </div>
 </div>
 </div>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuLLvncdk9Pp1L_MTRIRGXWtXhRyGk-O0&libraries=drawing" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBY7rzsCpS1LPaauLQRxJcFHIWuEUU3_Uo&libraries=drawing" async defer></script>
   <script type="text/javascript">
     var markers = [
     <?php
-    $sql = mysqli_query($koneksi, "SELECT * FROM tbl_tes");
+    $sql = mysqli_query($koneksi, "SELECT * FROM tbl_lokasi WHERE travel_id='$id'");
     while(($data =  mysqli_fetch_assoc($sql))) {
     ?>
     {
@@ -176,7 +199,8 @@ $row        = mysqli_fetch_array($agent);?>
             google.maps.event.addListener(drawingManager, 'markercomplete', function(marker){
     var lat = marker.getPosition().lat(); 
     var lng = marker.getPosition().lng();
+    var id = '<?php echo $id; ?>'
     if (confirm('Anda ingin menyimpan marker ini?')){
-  window.location.href = "halaman/agent_travel/simpan_marker.php?lat="+lat+"&lng="+lng;}});
+  		window.location.href = "halaman/agent_travel/simpan_marker.php?lat="+lat+"&lng="+lng+"&id="+id;}});
         }
     </script>

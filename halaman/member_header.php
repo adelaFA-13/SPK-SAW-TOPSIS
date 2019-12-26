@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Index KetanahSuci</title>
+    <title>SPK Pemilihan Agent Travel Haji & Umrah</title>
     <link
       rel="stylesheet"
       href="Asset3/libraries/bootstrap/css/bootstrap.css"
@@ -19,6 +19,14 @@
       href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/libraries/xzoom/dist/xzoom.css" />
+    <link href="asset2/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="asset/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="asset2/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
   </head>
   <body>
     <!-- Semantic elements -->
@@ -41,12 +49,12 @@
 
         <!-- Menu -->
         <div class="collapse navbar-collapse" id="navb">
-          <ul class="navbar-nav ml-auto mr-3">
+          <ul class="navbar-nav ml-auto mr-3" id="myDiv">
             <li class="nav-item mx-md-2">
-              <a class="nav-link active" href="#">Home</a>
+              <a class="nav-link  active" href="index.php?url=member_dashboard">Home</a>
             </li>
             <li class="nav-item mx-md-2">
-              <a class="nav-link" href="#">Agent Travel</a>
+              <a class="nav-link" href="index.php?url=Halaman_agent_travel">Agent Travel</a>
             </li>
             <li class="nav-item dropdown">
               <a
@@ -62,23 +70,20 @@
                 <a class="dropdown-item" href="#">Paket Umrah</a>
               </div>
             </li>
-            <li class="nav-item mx-md-2">
-              <a class="nav-link" href="#">Testimonial</a>
-            </li>
           </ul>
 
-          <!-- Mobile button
-          <form action="../login.php" method="Post" class="form-inline d-sm-block d-md-none">
+          <!-- Mobile button -->
+          <form action="index.php?url=Profile" method="Post" class="form-inline d-sm-block d-md-none">
             <button type="submit" class="btn btn-login my-2 my-sm-0">
-              Masuk
-            </button>-->
-          </form>
-          <!-- Desktop Button  -->
-          <form action = "#" class="form-inline my-2 my-lg-0 d-none d-md-block">
-            <button type="submit" class="btn btn-login btn-navbar-right my-2 my-sm-0 px-4">
               Profile
             </button>
           </form>
+          <!-- Desktop Button -->
+          <form action = "index.php?url=Profile" class="form-inline my-2 my-lg-0 d-none d-md-block">
+            <a href="index.php?url=Profile"  class="btn btn-login btn-navbar-right my-2 my-sm-0 px-4">
+            <i class="fa fa-user"></i> Profile
+            </a>
+          
         </div>
       </nav>
     </div>

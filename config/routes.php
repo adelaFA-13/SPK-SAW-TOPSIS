@@ -25,9 +25,32 @@ if(isset($_GET['url'])){
 			$include[] ='halaman/pengguna_dashboard.php';
 			break;
 		case 'member_dashboard':
-				$include[]='halaman/member_dashboard.php';
+			$include[]='halaman/member_dashboard.php';
+		break;
+		case 'pengguna_dashboard':
+			$include[]='pengguna_dashboard.php';
 		break;
 	// end of khusus dashboard//
+	//khusus pengguna
+		case 'register':
+			$include[]='register_travel.php';
+		break;
+		case 'home':
+			$page ="home";
+			$include[]='halaman/member_dashboard.php';
+		break;
+		case 'Halaman_agent_travel':
+			$page="agent_travel";
+			$req[]='config/member/load_data_agent.php';
+			$include[]='halaman/member/agent_travel.php';
+		break;
+		case 'Agent_detail':
+			$include[]='halaman/member/detail_agent.php';
+		break;
+		case 'Halaman_Pencarian':
+			$include[]='halaman/member/pencarian.php';
+		break;
+	//end of pengguna
 
 	// khusus pengaturan profile agent //
 		case 'pengaturan_agent':
@@ -61,6 +84,7 @@ if(isset($_GET['url'])){
 			$include[] ='halaman/kriteria_2/form.php';
 			break;
 		case 'data_nilai':
+			$req[] ='config/nilai/perhitungan.php';
 			$include[] = 'halaman/nilai/lihat.php';
 			break;
 		case 'Data_Proses':
@@ -110,6 +134,10 @@ if(isset($_GET['url'])){
 			
 	//end of khusus travel_agent
 	//khusus untuk member
+	case 'Profile':
+		$include[]='halaman/member/Profile.php';
+		break;
+	//enf of untuk member
 	
 		case 'data_pengguna':
 			include 'config/middleware/superadmin.php';
@@ -208,8 +236,8 @@ if(isset($_GET['url'])){
 }else{
 	//include 'config/middleware/superadmin.php';
 	// $include[] = 'halaman/404.php';
-	
-	header('location:/spk_tugasakhir/pengguna_dashboard.php');
+	$include[] ='pengguna_dashboard.php';
+	// header('location:/spk_tugasakhir1/pengguna_dashboard.php');
 }
 
 ?>

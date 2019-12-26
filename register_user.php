@@ -79,7 +79,7 @@ if($id_user){
 									</button>
 								</div>
 								<div class="mt-4 text-center">
-									Already have an account? <a href="index.html">Login</a>
+									Already have an account? <a href="login.php">Login</a>
 								</div>
 							</form>
 						</div>

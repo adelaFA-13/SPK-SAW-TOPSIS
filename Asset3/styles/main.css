@@ -14,6 +14,11 @@ body {
   margin-right: -18px !important;
   height: 70px;
   border-radius: 0;
+  padding-top: 19px;
+}
+
+.btn-navbar-right a {
+  padding-top: 19px;
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -34,10 +39,14 @@ body {
   color: #fff;
 }
 
+.btn-login a {
+  padding-top: 19px;
+}
+
 header {
   margin-top: -68px;
   padding: 180px 0 165px;
-  background-image: url("../images/header-background.jpg");
+  background-image: url("../images/header-background.JPG");
   background-size: cover;
 }
 
@@ -222,7 +231,7 @@ header .btn-get-started:hover {
 
 .section-details-header {
   min-height: 310px;
-  background: #e4e6eb;
+  background: #071c4dc4;
   margin-top: -68px;
 }
 
@@ -412,23 +421,5 @@ header .btn-get-started:hover {
 
 .section-details-content .gj-datepicker .input-group-append .btn {
   padding-right: 30px;
-}
-
-img.ribbon {
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  right: 0;
-  border: 0;
-  cursor: pointer; }
-
-.starcontainer{
-  margin-top: 60px;
-  text-align: center;
-  max-width: 450px; }
-
-input {
-  width: 30px;
-  margin: 10px 0;
 }
 /*# sourceMappingURL=main.css.map */

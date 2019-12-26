@@ -13,6 +13,6 @@ include('koneksi.php');
 		header('location:../index.php?url=member_dashboard');
 		}else{
 	     
-	      echo "salah";
+		//header('location:../index.php?url=pengguna_dashboard');
 	   }
 ?>

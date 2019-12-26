@@ -2,7 +2,7 @@
 <?php
 include 'config/koneksi.php';
 $id=$_SESSION['user_id'];
-$sql = "SELECT MAX(`paket_data_id`) FROM `tbl_data_paket` WHERE `travel_id`='$id'";
+$sql = "SELECT MAX(`paket_data_id`) FROM `tbl_data_paket`";
 $query=mysqli_query($koneksi,$sql);
 
 $id_paket= mysqli_fetch_array($query);
@@ -13,9 +13,11 @@ if($id_paket){
     $kode=$kode+1;
     $auto_kode = "P".str_pad($kode,4,"0", STR_PAD_LEFT);
     $auto_banyak = "BF".str_pad($kode,4,"0", STR_PAD_LEFT);
+    $kode_pel = "BS".str_pad($kode,4,"0", STR_PAD_LEFT);
 } else{
     $auto_kode ="P001";
     $auto_banyak ="BF001";
+    $kode_pel ="BS001";
 }
 ?>
 
@@ -32,7 +34,8 @@ if($id_paket){
                 <form action="config/paket_travel/simpan_paket.php" method="post">
                 <input type="hidden" class="form-control" name="travel_id" value="<?php echo $_SESSION['user_id']; ?>">
                             <input type="hidden" class="form-control" name="paket_data_id" value="<?php echo $auto_kode; ?>">
-                            <input type="hidden" class="form-control" name="idbanyakfasilitas" value="<?php echo $auto_banyak;?>">  
+                            <input type="hidden" class="form-control" name="idbanyakfasilitas" value="<?php echo $auto_banyak;?>">
+                            <input type="hidden" class="form-control" name="idbanyakpelayanan" value="<?php echo $kode_pel;?>">    
                 <div class="row form-group">
                     <div class="col-lg-3 ">
                             <label for="NamaMitra">Nama Paket</label>
@@ -67,6 +70,15 @@ if($id_paket){
                         <div class="col-lg-1">:</div>
                         <div class="col-lg-8">
                             <input type="text" class="form-control" name="harga_paket" placeholder="Masukan Harga Paket">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                    <div class="col-lg-3">
+                            <label for="">Durasi Hari</label>
+                    </div>
+                        <div class="col-lg-1">:</div>
+                        <div class="col-lg-8">
+                            <input type="text" class="form-control" name="durasi" placeholder="Masukan Lama Perjalanan">
                         </div>
                     </div>
                     <div class="row form-group">
@@ -119,25 +131,46 @@ if($id_paket){
                         </div>
                     </div>
                     <div class="row form-group">
-                    <div class="col-lg-3">
-                            <label for=""> Fasilitas</label>
-                    </div>
-                    <div class="col-lg-1">:</div>
-                    <div class="col-lg-8">
-                    <div class="form-row">
-                        <?php  include 'config/koneksi.php';
-                            $travel_id1 = $_SESSION['user_id'];
-                            $query3="SELECT * FROM `tbl_data_fasilitas` WHERE `travel_id`='$travel_id1'";
-                            $sql3 = mysqli_query($koneksi,$query3); 
-                            while ($result=mysqli_fetch_array($sql3)){
-                        ?>
-                        <input type="checkbox" name="fasilitasid[]" value="<?php echo $result['fasilitas_id']?>"> <?php echo $result['nama_fasilitas']?></input>
-                        &nbsp;
-                        <?php
-                        }
-                        ?>
-                    </div>         
-                    </div>
+                        <div class="col-lg-3">
+                                <label for=""> Fasilitas</label>
+                        </div>
+                        <div class="col-lg-1">:</div>
+                        <div class="col-lg-8">
+                        <div class="form-row">
+                            <?php  include 'config/koneksi.php';
+                                $travel_id1 = $_SESSION['user_id'];
+                                $query3="SELECT * FROM `tbl_data_fasilitas` WHERE `travel_id`='$travel_id1'";
+                                $sql3 = mysqli_query($koneksi,$query3); 
+                                while ($result=mysqli_fetch_array($sql3)){
+                            ?>
+                            <input type="checkbox" name="fasilitasid[]" value="<?php echo $result['fasilitas_id']?>"> <?php echo $result['nama_fasilitas']?></input>
+                            &nbsp;
+                            <?php
+                            }
+                            ?>
+                        </div>         
+                        </div>
+                    </div>  
+                    <div class="row form-group">
+                        <div class="col-lg-3">
+                                <label for="">Pelayanan</label>
+                        </div>
+                        <div class="col-lg-1">:</div>
+                        <div class="col-lg-8">
+                        <div class="form-row">
+                            <?php  include 'config/koneksi.php';
+                                $travel_id1 = $_SESSION['user_id'];
+                                $query4="SELECT * FROM `tbl_data_pelayanan` WHERE `travel_id`='$travel_id1'";
+                                $sql4 = mysqli_query($koneksi,$query4); 
+                                while ($result1=mysqli_fetch_array($sql4)){
+                            ?>
+                            <input type="checkbox" name="pelayananid[]" value="<?php echo $result1['pelayanan_id']?>"> <?php echo $result1['nama_pelayanan']?></input>
+                            &nbsp;
+                            <?php
+                            }
+                            ?>
+                        </div>         
+                        </div>
                     </div>  
                     <div class="form-group">
                         <div class="col lg-12" align="right">
