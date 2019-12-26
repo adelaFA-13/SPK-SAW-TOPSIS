@@ -59,7 +59,7 @@
 								</div> -->
 								<div class="form-group">
 									<label for="">Username</label>
-									<input id="username" type="text" class="form-control" name="username" value="username" placeholder="username" required autofocus>
+									<input id="username" type="text" class="form-control" name="username" placeholder="username" required autofocus>
 									<div class="invalid-feedback">
 										Username is invalid
 									</div>
