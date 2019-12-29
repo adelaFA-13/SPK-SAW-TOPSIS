@@ -354,18 +354,23 @@ function getKeamanan(){
 	include 'config/koneksi.php';
 	$query=mysqli_query($koneksi,"SELECT DISTINCT paket_data_id, thn_habis, travel_id FROM tbl_data_paket INNER JOIN tbl_agent_travel USING(travel_id) GROUP BY paket_data_id");
 	while ($row =mysqli_fetch_assoc($query)) {
-		
-			$habis = new DateTime($row['thn_habis']);
-			$today = new DateTime();
-			$diff = $today->diff($habis);
+			date_default_timezone_set('Asia/Jakarta');
+			$habis[] = new DateTime($row['thn_habis']);
+			$today[] = new DateTime();
+			
 
-			$data[]=$diff->d;
+			// $hari =$today->diff($habis);
+			//$hari = date_diff($habis,$today);
+			
+			//$data[]=$hari->days;
+		
 	}
+	//print_r($data);
 	//deklarasi:
 	$i=0;
 	$n=getJumlahAlternatif();
 	for($i=0; $i<$n; $i++){
-	 if( $data[$i] == 0) {
+	 if( $today[$i] >= $habis[$i]) {
 	 	$nilai_keamanan[$i]=1;
 	 }else{
 	 	$nilai_keamanan[$i]=5;
