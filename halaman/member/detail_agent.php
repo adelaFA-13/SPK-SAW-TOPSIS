@@ -258,7 +258,7 @@
                         </div>
                         <hr/>
                         <div class="join-container">
-                            <button type="submit" name="submit" class="btn btn-block btn-join-now mt-3 py-2"
+                            <button type="submit" name="submit" class="btn btn-block btn-join-now mt-3 py-2" onclick="setRatingAgent()"
                                 > Submit</button>
                         </div>
                     </form>
