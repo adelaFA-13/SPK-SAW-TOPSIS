@@ -216,6 +216,8 @@
             var doc = document.getElementById("star1");
             doc.childNodes[parseInt(response.nilai)-1].click();
             $('star1').starrr(); //trigger fungsi starrr
+          }else{
+            alert('Berhasil submit rating!');
           }
         }
         else{
