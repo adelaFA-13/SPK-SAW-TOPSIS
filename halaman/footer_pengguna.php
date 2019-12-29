@@ -200,7 +200,7 @@
     var value = $('#rating').text();
     var id = <?php echo json_encode($_GET['id'])?>;
     $.ajax({
-      url: "config/testimoni/proses_rating.php",
+      url: "config/testimoni/create.php",
       dataType: "json",
       data: {
         "nilai": value,
@@ -215,8 +215,11 @@
             doc.childNodes[parseInt(response.nilai)-1].click();
             $('star1').starrr();
           }else{
-            alert('Berhasil submit rating!');
+            alert(response.message);
           }
+        }
+        else{
+
         }
       },
       error: function(xhr, status, err) {
