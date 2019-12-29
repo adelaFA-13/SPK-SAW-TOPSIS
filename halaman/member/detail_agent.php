@@ -240,7 +240,6 @@
                 <div class="card card-details">
                     <h3 align="center">Testimoni</h3>
                     <hr/>
-                    <form action="config/testimoni/create.php" method="POST">
                     <table class="trip-informations">
                         <tr>
                         <th width="50%">Click to rate :</th>
@@ -249,19 +248,18 @@
                         </td>
                         </tr>
                     </table>
-                        <div>&nbsp;
-                        <span class='your-choice-was' style='display: none;'>
-                            Your rating was <span name="rating" class='choice'>
-                            </span>
+                    <div>&nbsp;
+                    <span class='your-choice-was' style='display: none;'>
+                        Your rating was <span class="choice rating">
                         </span>
-                        <input type="hidden" class="choice" name="rating">
-                        </div>
-                        <hr/>
-                        <div class="join-container">
-                            <button type="submit" name="submit" class="btn btn-block btn-join-now mt-3 py-2" onclick="setRatingAgent()"
-                                > Submit</button>
-                        </div>
-                    </form>
+                    </span>
+                    <input type="hidden" class="choice" name="rating">
+                    </div>
+                    <hr/>
+                    <div class="join-container">
+                        <button class="btn btn-block btn-join-now mt-3 py-2" onclick="setRatingAgent()"
+                            > Submit</button>
+                    </div>
                 </div>
                 <!-- end of halaman sertifikat-->
 

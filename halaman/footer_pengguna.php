@@ -197,12 +197,14 @@
   }
 
   function setRatingAgent(isReloadPage=0){
-    var value = $('#rating').text();
+    var value = $('.rating').text();
     var id = <?php echo json_encode($_GET['id'])?>;
+
+    //gunakan ajax untuk mengirim data
     $.ajax({
       url: "config/testimoni/create.php",
       dataType: "json",
-      data: {
+      data: { //data yang dikirim
         "nilai": value,
         "travel_id": id,
         "is_reload_page": isReloadPage
@@ -213,13 +215,11 @@
           if(isReloadPage){
             var doc = document.getElementById("star1");
             doc.childNodes[parseInt(response.nilai)-1].click();
-            $('star1').starrr();
-          }else{
-            alert(response.message);
+            $('star1').starrr(); //trigger fungsi starrr
           }
         }
         else{
-
+          alert(response.message);
         }
       },
       error: function(xhr, status, err) {
