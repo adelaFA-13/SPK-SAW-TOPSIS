@@ -2,10 +2,13 @@
 	include '../koneksi.php';
 	session_start();
 	$nilai = $_POST['nilai'];
-	if($_SESSION['user_id']){
+
+	//user_id di session adalah id user yang login
+	if(!isset($_SESSION['user_id'])){ //jika tidak di set nilai session user_id
 		$response = ['status'=>false, 'message'=>'Please login for give rating!'];
-		echo json_encode($response);exit();
+		echo json_encode($response);exit(); //jika tidak masuk ke kondisi, maka exit
 	}
+	
 	$id_member = $_SESSION['user_id'];
 	$tanggal = date('Y-m-d H:i:s');
 	$travel_id = $_POST['travel_id'];
