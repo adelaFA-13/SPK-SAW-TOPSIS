@@ -116,18 +116,21 @@
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
    <script src="Asset3/star/dist/starrr.js"></script>
    <script>
+     var ratingElement = document.getElementById("rating");
+     if(ratingElement){
+      setRatingAgent(1);
+     }
      $('#star1').starrr({
        change: function(e, value){
-         if (value) {
-           $('.your-choice-was').show();
-           $('.choice').text(value);
-          //  var choice = $('.choice').text(value);
-           
-         } else {
-           $('.your-choice-was').hide();
-         }
-       }
-     });
+        if (value) {
+          $('.your-choice-was').show();
+          $('.choice').text(value);
+        } else {
+          $('.your-choice-was').hide();
+          $('.choice').text('');
+        }
+      }
+    });
  
      var $s2input = $('#star2_input');
      $('#star2').starrr({
@@ -191,6 +194,35 @@
           argument.parentnElement.parentElement.remove();
       }
       
+  }
+
+  function setRatingAgent(isReloadPage=0){
+    var value = $('#rating').text();
+    var id = <?php echo json_encode($_GET['id'])?>;
+    $.ajax({
+      url: "config/testimoni/proses_rating.php",
+      dataType: "json",
+      data: {
+        "nilai": value,
+        "travel_id": id,
+        "is_reload_page": isReloadPage
+      },
+      type: "post",
+      success: function(response) {
+        if(response.status){
+          if(isReloadPage){
+            var doc = document.getElementById("star1");
+            doc.childNodes[parseInt(response.nilai)-1].click();
+            $('star1').starrr();
+          }else{
+            alert('Berhasil submit rating!');
+          }
+        }
+      },
+      error: function(xhr, status, err) {
+        alert(xhr.responseText+", "+status+", "+err);
+      }
+    });
   }
   </script>
 
