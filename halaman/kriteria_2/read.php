@@ -10,7 +10,7 @@
           <!-- Content Buat Table -->
            <div class="card shadow mb-4">
            <div class="card-header py-3">
-               <h6 class="m-0 font-weight-bold text-primary"> Data Kriteria</h6>
+               <h6 class="m-0 font-weight-bold text-primary"> Data Kriteria Baru</h6>
                <!-- <button style="float:right" class="nav-item dropdown d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm">
                    <a href="#" class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
                        Pilih
@@ -24,75 +24,27 @@
            <div class="card-body">
                <div class="table-responsive">
                    <table class="table table-bordered" id="dataTable" widht="100%" cellspacing="0">
-                    
                         <thead>
                             <tr align="center">
-                                <th rowspan="5">No.</th>
-                                <th rowspan="5">Nama Kriteria</th>
-                                <th rowspan="5">Nama Bobot</th>
-                                <th rowspan="5">Jenis</th>
-                                <th colspan="2">Subkriteria</th>
+                                <th rowspan="2" width="30">No</th>
+                                <th rowspan="2">Kriteria</th>
+                                <th rowspan="2">Jenis</th>
+                                <th rowspan="2" width="50">Bobot</th>
+                                <th colspan="2">subktiteria</th>
                             </tr>
                             <tr>
-                                <th>Nama Sub</th>
-                                <th>Bobot</th>
+                                <th width="150">Nama Subkriteria</th>
+                                <th width="50">Bobot</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>1</td>
-                                <td>Harga</td>
-                                <td>C</td>
-                                <td>Cost</td>
-                                <td>-</td>
-                                <td>ad</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td rowspan="3">Paket</td>
-                                <td rowspan="3">C</td>
-                                <td rowspan="3">Cost</td>
-                            </tr>
-                         
-                            <tr>
-                                <td>3</td>
-                                <td>Keamanan</td>
-                                <td>C</td>
-                                <td>Cost</td>
-                                <td >ad</td>
-                                <td>ad</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Fasilitas</td>
-                                <td>C</td>
-                                <td>Cost</td>
-                                <td >ad</td>
-                                <td>ad</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>Pelayanan</td>
-                                <td>C</td>
-                                <td>Cost</td>
-                                <td >ad</td>
-                                <td>ad</td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>Sertifikat</td>
-                                <td>C</td>
-                                <td>Cost</td>
-                                <td >ad</td>
-                                <td>ad</td>
-                            </tr>
-                            <tr>
-                                <td>7</td>
-                                <td>Testimoni</td>
-                                <td>C</td>
-                                <td>Cost</td>
-                                <td >ad</td>
-                                <td>ad</td>
+                                <td>a</td>
+                                <td>v</td>
+                                <td>bisa dipilih dinamis dari 1-5 paket dropdown boleh</td>
+                                <td>v</td>
+                                <td>v</td>
                             </tr>
                         </tbody>
                    </table>

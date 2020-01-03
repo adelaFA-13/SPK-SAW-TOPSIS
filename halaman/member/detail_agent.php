@@ -19,59 +19,38 @@
           <div class="row">
             <div class="col-lg-8 pl-lg-0">
               <div class="card card-details">
-             <?php  while($data=mysqli_fetch_assoc($query)){
+             <?php  $data=mysqli_fetch_assoc($query)
                
               ?>
                 <h1><?php echo $data['nama'] ?></h1>
                 <p></p>
-                <?php
-                $id=$_GET['id'];
-                $sqlgaleri=mysqli_query($koneksi,"SELECT * FROM tbl_galeri where travel_id='$id");
-                ?>
                 <div class="gallery">
                   <div class="xzoom-container">
+                    <?php $id=$_GET['id'];
+                        $sqlgaleri1=mysqli_query($koneksi,"SELECT * FROM tbl_galeri  ORDER BY id ASC LIMIT 1");
+                       $datagaleri= mysqli_fetch_assoc($sqlgaleri1);
+                        ?>
                     <img
                       class="xzoom"
                       id="xzoom-default"
-                      src="Asset3/images/details-1.jpg"
-                      xoriginal="Asset3/images/details-1.jpg"
+                      src="<?php echo "config/galeri/".$datagaleri['foto']; ?>"
+                      xoriginal="A"<?php echo "config/galeri/".$datagaleri['foto']; ?>"
                     />
                     <div class="xzoom-thumbs">
-                      <a href="Asset3/images/details-1.jpg"
+                    <?php
+                    $id=$_GET['id'];
+                    $sqlgaleri=mysqli_query($koneksi,"SELECT * FROM tbl_galeri where travel_id='$id'");
+                        $no=1;
+                        foreach ($sqlgaleri as $row1){
+                    ?>
+                      <a href="<?php echo "config/galeri/".$row1['foto']; ?>"
                         ><img
                           class="xzoom-gallery"
                           width="128"
-                          src="Asset3/images/details-1.jpg"
-                          xpreview="Asset3/images/details-1.jpg"
+                          src="<?php echo "config/galeri/".$row1['foto']; ?>"
+                          xpreview="<?php echo "config/galeri/".$row1['foto']; ?>"
                       /></a>
-                      <a href="Asset3/images/details-1.jpg"
-                        ><img
-                          class="xzoom-gallery"
-                          width="128"
-                          src="Asset3/images/details-1.jpg"
-                          xpreview="Asset3/images/details-1.jpg"
-                      /></a>
-                      <a href="Asset3/images/details-1.jpg"
-                        ><img
-                          class="xzoom-gallery"
-                          width="128"
-                          src="Asset3/images/details-1.jpg"
-                          xpreview="Asset3/images/details-1.jpg"
-                      /></a>
-                      <a href="Asset3/images/details-1.jpg"
-                        ><img
-                          class="xzoom-gallery"
-                          width="128"
-                          src="Asset3/images/details-1.jpg"
-                          xpreview="Asset3/images/details-1.jpg"
-                      /></a>
-                      <a href="Asset3/images/details-1.jpg"
-                        ><img
-                          class="xzoom-gallery"
-                          width="128"
-                          src="Asset3/images/details-1.jpg"
-                          xpreview="Asset3/images/details-1.jpg"
-                      /></a>
+                      <?php } ?>
                     </div>
                   
                   </div>
@@ -80,9 +59,7 @@
                   </p>
                 </div>
               </div>
-              <?php
-              }
-              ?>
+           
               </br>
               <!-- tampil paket data -->
               <div class="card card-details">

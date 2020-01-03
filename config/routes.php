@@ -90,7 +90,7 @@ if(isset($_GET['url'])){
 			$include[] ='halaman/kriteria_2/read.php';
 			break;
 		case 'tambah_kriteria':
-			$include[] ='halaman/kriteria_2/form.php';
+			$include[] ='halaman/kriteria_2/create.php';
 			break;
 		case 'data_nilai':
 			$req[] ='config/nilai/perhitungan.php';
@@ -190,13 +190,8 @@ if(isset($_GET['url'])){
 			$include[] = 'halaman/calon/ubah.php';
 			break;
 
-		case 'data_kriteria':
-			$req[] = 'config/kriteria/load_data.php';
-			$include[] = 'halaman/kriteria/index.php';
-			break;
 		case 'data_kriteria_tambah':
-			include 'config/middleware/superadmin.php';
-			$include[] = 'halaman/kriteria/tambah.php';
+			$include[] = 'halaman/kriteria2/create.php';
 			break;
 		case 'data_kriteria_lihat':
 			$req[] = 'config/kriteria/load_detail.php';
