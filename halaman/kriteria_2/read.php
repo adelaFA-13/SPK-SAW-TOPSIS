@@ -11,7 +11,7 @@
            <div class="card shadow mb-4">
            <div class="card-header py-3">
                <h6 class="m-0 font-weight-bold text-primary"> Data Kriteria</h6>
-               <button style="float:right" class="nav-item dropdown d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm">
+               <!-- <button style="float:right" class="nav-item dropdown d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm">
                    <a href="#" class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
                        Pilih
                     <div class="div dropdown-menu">
@@ -19,7 +19,7 @@
                         <a href="#" class="dropdown-item">Umrah</a>
                     </div>
                    </a>
-               </button>
+               </button> -->
            </div>
            <div class="card-body">
                <div class="table-responsive">
@@ -27,32 +27,72 @@
                     
                         <thead>
                             <tr align="center">
-                                <th>No.</th>
-                                <th>Nama Kriteria</th>
-                                <th>Nama Bobot</th>
-                                <th>Jenis</th>
-                                <th>Subkriteria(Bobot)</th>
-                                <th>Details</th>
+                                <th rowspan="5">No.</th>
+                                <th rowspan="5">Nama Kriteria</th>
+                                <th rowspan="5">Nama Bobot</th>
+                                <th rowspan="5">Jenis</th>
+                                <th colspan="2">Subkriteria</th>
+                            </tr>
+                            <tr>
+                                <th>Nama Sub</th>
+                                <th>Bobot</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>A</td>
-                                <td>B</td>
+                                <td>1</td>
+                                <td>Harga</td>
                                 <td>C</td>
-                                <td>d</td>
-                                <td>e</td>
-                                <td align="center">
-                                    <a href="#" class="btn btn-xs btn-info" title="lihat">
-                                        <i class="fa fa-eye"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-xs btn-warning" title="Edit">
-                                        <i class="fas fa-pen"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-xs btn-danger" title="delete" onclick="retrun confirm('Apakah anda yakin ingin menghapus?')">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </a>
-                                </td>
+                                <td>Cost</td>
+                                <td>-</td>
+                                <td>ad</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td rowspan="3">Paket</td>
+                                <td rowspan="3">C</td>
+                                <td rowspan="3">Cost</td>
+                            </tr>
+                         
+                            <tr>
+                                <td>3</td>
+                                <td>Keamanan</td>
+                                <td>C</td>
+                                <td>Cost</td>
+                                <td >ad</td>
+                                <td>ad</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Fasilitas</td>
+                                <td>C</td>
+                                <td>Cost</td>
+                                <td >ad</td>
+                                <td>ad</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Pelayanan</td>
+                                <td>C</td>
+                                <td>Cost</td>
+                                <td >ad</td>
+                                <td>ad</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>Sertifikat</td>
+                                <td>C</td>
+                                <td>Cost</td>
+                                <td >ad</td>
+                                <td>ad</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>Testimoni</td>
+                                <td>C</td>
+                                <td>Cost</td>
+                                <td >ad</td>
+                                <td>ad</td>
                             </tr>
                         </tbody>
                    </table>
