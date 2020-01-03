@@ -12,23 +12,24 @@
         <br />
         moment you never see before
       </p>
-      <a href="index.php?url=Halaman_Pencarian" class="btn btn-get-started px-4 mt-4">
+      <!-- <a href="index.php?url=Halaman_Pencarian" class="btn btn-get-started px-4 mt-4">
         Get Started
-      </a>
+      </a> -->
     </header>
     <main>
       <div class="container">
         <section class="section-stats row justify-content-center" id="stats">
           <div class="col-3 col-md-2 stats-detail" align=center>
-            <h2>20K</h2>
+          
+            <h2><?php echo getJmlhHaji();?></h>
             <p>Paket Haji</p>
           </div>
           <div class="col-3 col-md-2 stats-detail" align=center>
-            <h2>12</h2>
+            <h2><?php echo getJmlhUmrah();?></h2>
             <p>Paket Umrah</p>
           </div>
           <div class="col-3 col-md-2 stats-detail"  align=center>
-            <h2>72</h2>
+            <h2><?php echo getJmlhTravel() ?></h2>
             <p>Agent Travel</p>
           </div>
         </section>
@@ -52,12 +53,12 @@
             <div class="col-sm-6 col-md-4 col-lg-3">
               <div
                 class="card-travel text-center d-flex flex-column"
-                style="background-image: url('Asset3/images/travel-2.jpg');"
+                style="background-image: url('Asset3/images/logo-haji.jpg');"
               >
                 <div class="travel-country"></div>
                 <div class="travel-location">HAJI</div>
                 <div class="travel-button mt-auto">
-                  <a href="#" class="btn btn-travel-details px-4">
+                  <a href="index.php?url=Halaman_Pencarian_Haji" class="btn btn-travel-details px-4">
                     View Details
                   </a>
                 </div>
@@ -66,12 +67,12 @@
             <div class="col-sm-6 col-md-4 col-lg-3">
               <div
                 class="card-travel text-center d-flex flex-column"
-                style="background-image: url('Asset3/images/travel-4.jpg');"
+                style="background-image: url('Asset3/images/logo-mekkah.jpg');"
               >
                 <div class="travel-country"></div>
                 <div class="travel-location">UMRAH</div>
                 <div class="travel-button mt-auto">
-                  <a href="#" class="btn btn-travel-details px-4">
+                  <a  href="index.php?url=Halaman_Pencarian_Umrah"" class="btn btn-travel-details px-4">
                     View Details
                   </a>
                 </div>

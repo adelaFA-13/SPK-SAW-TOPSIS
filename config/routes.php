@@ -45,10 +45,19 @@ if(isset($_GET['url'])){
 			$include[]='halaman/member/agent_travel.php';
 		break;
 		case 'Agent_detail':
+			$req[]='config/pengguna/detail_travelagent.php';
 			$include[]='halaman/member/detail_agent.php';
 		break;
 		case 'Halaman_Pencarian':
 			$include[]='halaman/member/pencarian.php';
+		break;
+		case 'Halaman_Pencarian_Umrah':
+			$req[]='config/pencarian/load_pencarian_umrah.php';
+			$include[]='halaman/member/pencarian_umrah.php';
+		break;
+		case 'Halaman_Pencarian_Haji':
+		
+			$include[]='halaman/member/pencarian_haji.php';
 		break;
 	//end of pengguna
 
@@ -81,7 +90,7 @@ if(isset($_GET['url'])){
 			$include[] ='halaman/kriteria_2/read.php';
 			break;
 		case 'tambah_kriteria':
-			$include[] ='halaman/kriteria_2/form.php';
+			$include[] ='halaman/kriteria_2/create.php';
 			break;
 		case 'data_nilai':
 			$req[] ='config/nilai/perhitungan.php';
@@ -131,7 +140,10 @@ if(isset($_GET['url'])){
 			include 'config/middleware/agent_travel.php';
 			$include[]='halaman/sertifikat/create.php';
 			break;
-			
+		case 'Galeri':
+			$include[]='halaman/galeri_travel/index.php';
+			break;
+					
 	//end of khusus travel_agent
 	//khusus untuk member
 	case 'Profile':
@@ -178,13 +190,8 @@ if(isset($_GET['url'])){
 			$include[] = 'halaman/calon/ubah.php';
 			break;
 
-		case 'data_kriteria':
-			$req[] = 'config/kriteria/load_data.php';
-			$include[] = 'halaman/kriteria/index.php';
-			break;
 		case 'data_kriteria_tambah':
-			include 'config/middleware/superadmin.php';
-			$include[] = 'halaman/kriteria/tambah.php';
+			$include[] = 'halaman/kriteria2/create.php';
 			break;
 		case 'data_kriteria_lihat':
 			$req[] = 'config/kriteria/load_detail.php';
@@ -230,12 +237,16 @@ if(isset($_GET['url'])){
 			break;
 		
 		default:
+		$req[]='config/koneksi.php';
+		$req[]='config/pengguna/load_data.php';
 		$include[] ='pengguna_dashboard.php';
 		break;
 	}
 }else{
 	//include 'config/middleware/superadmin.php';
 	// $include[] = 'halaman/404.php';
+	$req[]='config/koneksi.php';
+	$req[]='config/pengguna/load_data.php';
 	$include[] ='pengguna_dashboard.php';
 	// header('location:/spk_tugasakhir1/pengguna_dashboard.php');
 }
