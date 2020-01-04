@@ -119,7 +119,7 @@
   function btn_remove(argument) {
       var r = confirm("Are You Sure?");
       if (r == true) {
-          argument.parentnElement.parentElement.remove();
+          argument.closest('.form-group').remove();
       }
       
   }

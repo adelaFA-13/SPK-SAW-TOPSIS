@@ -24,7 +24,7 @@
                                                 <label>Nama</label>
                                             </div>
                                             <div class="col-lg-9">
-                                                <input class="form-control" type="text" name="nama" placeholder="Nama" required="" ">
+                                                <input class="form-control" type="text" name="nama" placeholder="Nama" required>
                                             <!--kalau pakek datavase
                                             value="<?php if(isset($data_kriteria)) echo $data_kriteria[0]['nama']; ?>
                                             -->
