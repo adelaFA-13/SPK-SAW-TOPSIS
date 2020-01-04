@@ -111,7 +111,7 @@
       <hr class="sidebar-divider">
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="index.php?url=Galeri">
           <i class="fas fa-image"></i>
           <span>Galeri</span></a>
       </li>
