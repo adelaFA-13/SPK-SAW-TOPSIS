@@ -86,7 +86,8 @@ if(isset($_GET['url'])){
 		case 'data_paket_umrah':
 			$include[] ='halaman/paket_umrah/lihat.php';
 			break;
-		case 'data_kriteria':	
+		case 'data_kriteria':
+			$req[] = 'config/kriteria/load_data.php';	
 			$include[] ='halaman/kriteria_2/read.php';
 			break;
 		case 'tambah_kriteria':

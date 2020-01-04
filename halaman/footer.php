@@ -57,39 +57,64 @@
 
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>
-      jQuery('#dataTable').ddTableFilter();
-    </script>
-    <script>
-    $(document).ready(function() {
-        $('#dataTables-example').DataTable({
-                responsive: true
-        });
-        $('#dataTables-result').DataTable({
-                responsive: true,
-                order : []
-        });
-        $('#dataTables-ranking').DataTable({
-                responsive: true,
-                order : []
-        });
-        $('#dataTables-kecocokan').DataTable({
-                responsive: true,
-                order : []
-        });
+
+      $(document).ready(function() {
+        var table = document.getElementById("dataTable");
+        if(table){
+          jQuery('#dataTable').ddTableFilter();
+        }
         
-    });
+        table = document.getElementById("dataTables-example");
+        if(table){
+          $('#dataTables-example').DataTable({
+              responsive: true
+          });
+        }
+        
+        table = document.getElementById("dataTables-result");
+        if(table){
+          $('#dataTables-result').DataTable({
+              responsive: true,
+              order : []
+          });
+        }
+
+        table = document.getElementById("dataTables-ranking");
+        if(table){
+          $('#dataTables-ranking').DataTable({
+              responsive: true,
+              order : []
+          });
+        }
+        
+        table = document.getElementById("dataTables-kecocokan");
+        if(table){
+          $('#dataTables-kecocokan').DataTable({
+              responsive: true,
+              order : []
+          });
+        }
+
+        table = document.getElementById("dataTable-kriteria");
+        if(table){
+          $('#dataTable-kriteria').DataTable({
+              responsive: true,
+              order : []
+          });
+        }
+      });
     
-    $('#add_sub').change(function(e) {
+      $('#add_sub').change(function(e) {
         var pilihan = $('#add_sub').val();
         if(pilihan == "Punya"){
-            $('#sub').after('<div class="row form-group" id="sub_comp">                                        <div class="col-lg-3 col-lg-offset-3">                                            <button type="button" id="btn_add_sub" class="btn btn-md btn-success">                                                <i class="fa fa-plus"></i>                                                Tambah Subkriteria                                            </button>                                        </div>                                        <div class="col-lg-6" id="sub_form">                                                                                    </div>                                    </div>');
-            $('#btn_add_sub').click(function(e) {
-                 $('#sub_form').append('<div class="row form-group"><div class="col-lg-5"><input class="form-control" type="text" name="sub_nama[]" placeholder="Nama SubKriteria"></div><div class="col-lg-5"><input class="form-control" type="text" name="sub_bobot[]" placeholder="Bobot SubKriteria"></div><div class="col-lg-2"><button onclick="btn_remove(this)" type="button" class="btn btn-md btn-danger"><i class="fa fa-remove"></i></button></div></div>');
-            });
-        }else{
-            $('#sub_comp').remove();
-        }   
-  });
+          $('#sub').after('<div class="row form-group" id="sub_comp">                                        <div class="col-lg-3 col-lg-offset-3">                                            <button type="button" id="btn_add_sub" class="btn btn-md btn-success">                                                <i class="fa fa-plus"></i>                                                Tambah Subkriteria                                            </button>                                        </div>                                        <div class="col-lg-6" id="sub_form">                                                                                    </div>                                    </div>');
+          $('#btn_add_sub').click(function(e) {
+               $('#sub_form').append('<div class="row form-group"><div class="col-lg-5"><input class="form-control" type="text" name="sub_nama[]" placeholder="Nama SubKriteria"></div><div class="col-lg-5"><input class="form-control" type="text" name="sub_bobot[]" placeholder="Bobot SubKriteria"></div><div class="col-lg-2"><button onclick="btn_remove(this)" type="button" class="btn btn-md btn-danger"><i class="fa fa-remove"></i></button></div></div>');
+          });
+      }else{
+              $('#sub_comp').remove();
+          }   
+    });
   
   function btn_remove(argument) {
       var r = confirm("Are You Sure?");
@@ -113,6 +138,25 @@
 
 
 <script>
+  function updateNilaiBobot(id, bobot, idx_dropdown){
+    $.ajax({
+        type: "POST",
+        url: "config/kriteria/proses_ubah.php",
+        dataType: "JSON",
+        data: {
+            'id': id,
+            'bobot': bobot
+        },
+        success: function(response) {
+            console.log('#navbardrop'+idx_dropdown);
+            $('#navbardrop'+idx_dropdown).text(bobot+' ');
+        },
+        error: function(xhr, status, err) {
+          // alert(xhr.responseText+", "+status+", "+err);
+        }
+    });
+  }
+
   function getDataNilai(comp){
     var nilai = comp.options[comp.selectedIndex].text;
     // if(nilai.toLowerCase() == "--pilih--"){
