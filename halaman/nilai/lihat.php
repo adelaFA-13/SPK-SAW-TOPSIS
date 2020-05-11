@@ -22,7 +22,7 @@
                 <option value="Umrah">Umrah</option>
                </select> -->
           
-               <button class="nav-item dropdown d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm">
+               <!-- <button class="nav-item dropdown d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm">
                    <a href="#" class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
                        Pilih
                     <div class="div dropdown-menu">
@@ -33,10 +33,33 @@
                </button>
 
                <button  id="cari" name="cari" class="nav-item dropdown d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm">
-               Add</button>
-          
-          
+               Add</button> -->
            </div>
+<?php 
+$sql_subkriteria=mysqli_query($koneksi,"SELECT * FROM tbl_subkriteria");
+while($data=mysqli_fetch_assoc($sql_subkriteria)){
+    $datas[$data['nama_sub']]=$data['bobot'];
+}
+$_SESSION['subkriteria']=$datas;
+$subkriteria_bobot=$_SESSION['subkriteria'];
+
+$n=getJumlahAlternatif();
+$dataPaket = getDataPaketCoba();
+$agentTravel = getAgentTravel();
+$jenis = getJenis();
+$harga = getHarga();
+$hari = getDataHari();
+$hotel = getKelasHotel();
+$rute =getRutePenerbangan();
+$wisata = getObjekWisata();
+$keamanan = getKeamanan();
+$fasilitas = getFasilitas();
+$pelayanan = getPelayanan();
+$sertifikat= getSertifikat();
+$testimoni = getTestimoni();
+?>
+           <form action="index.php?url=Halaman_Proses" method="post">
+           <input type="hidden" name="jenis" value="<?php echo $jenis[0];?>">
            <div class="card-body">
                <div class="table-responsive">
                    <div class="data">
@@ -57,26 +80,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                        <?php
-
-                        $n=getJumlahAlternatif();
-                        $dataPaket = getDataPaketCoba();
-                        $agentTravel = getAgentTravel();
-                        $jenis = getJenis();
-                        $harga = getHarga();
-                        $hari = getDataHari();
-                        $hotel = getKelasHotel();
-                        $rute =getRutePenerbangan();
-                        $wisata = getObjekWisata();
-                        $keamanan = getKeamanan();
-                        $fasilitas = getFasilitas();
-                        $pelayanan = getPelayanan();
-                        $sertifikat= getSertifikat();
-                        $testimoni = getTestimoni();
+                        <?php 
                         for($i=0;$i<$n;$i++){
-                            $paket = $hari[$i]+$hotel[$i]+$rute[$i]+$wisata[$i];
+                            if($jenis[0] == 'U1'){
+                                $paket[$i]= ($hari[$i]*$subkriteria_bobot['Durasi_perjalanan'])+($hotel[$i]*$subkriteria_bobot['Kelas Hotel'])+($rute[$i]*$subkriteria_bobot['Rute Penerbangan'])+($wisata[$i]*$subkriteria_bobot['Objek Wisata']);
+                                //$paket[$i] = $wisata[$i]+$hari[$i]+$hotel[$i]+$rute[$i];
+                            }else{
+                                $paket[$i] = ($hari[$i]*$subkriteria_bobot['Durasi_perjalanan'])+($hotel[$i]*$subkriteria_bobot['Kelas Hotel'])+($rute[$i]*$subkriteria_bobot['Rute Penerbangan']);
+                            }
+                            //$paket[$i] = ($hari[$i]*$subkriteria_bobot['Durasi_perjalanan'])+($hotel[$i]*$subkriteria_bobot['Kelas Hotel'])+($rute[$i]*$subkriteria_bobot['Rute Penerbangan'])+($wisata[$i]*$subkriteria_bobot['Objek Wisata']);
+                            //$paket[$i] = $wisata[$i]+$hari[$i]+$hotel[$i]+$rute[$i];
                            ?>
-                            <tr>
+                            <tr align="center">
                                 <td><?php echo $i+1; ?></td>
                                 <td ><input type="hidden" name="kodepaket[]" value="<?php echo $dataPaket[$i]; ?>"><?php echo $dataPaket[$i]; ?>
                                 </td>
@@ -85,7 +100,7 @@
                                 <td><input type="hidden" name="jenis[]" value="<?php echo $jenis[$i]; ?>"><?php echo $jenis[$i]; ?></td>
                                 <td ><input type="hidden" name="harga[]" value="<?php echo $harga[$i]; ?>"><?php echo $harga[$i]; ?>
                                 </td> 
-                                <td ><input type="hidden" name="paket[]" value="<?php echo $paket ?>"><?php echo $paket; ?>
+                                <td ><input type="hidden" name="paket[]" value="<?php echo $paket[$i] ?>"><?php echo $paket[$i]; ?>
                                 </td> 
                                 <td ><input type="hidden" name="keamanan[]" value="<?php echo $keamanan[$i]; ?>"><?php echo $keamanan[$i]; ?>
                                 </td> 
@@ -104,11 +119,13 @@
 
                         ?>
                         </tbody>
-                   </table>
-                   </div>
+                   </table>   
+                    </div>   
                </div>
-           </div>
-       </div>       
+            </div>
+            <button class="btn btn-warning col-lg-12" type="submit" name="proses" value="submit">Proses</button>
+            </form>
+       </div> 
         <!-- /.container-fluid -->
       </div>
       <!-- End of Main Content -->

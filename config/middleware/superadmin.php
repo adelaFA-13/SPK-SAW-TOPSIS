@@ -2,7 +2,7 @@
 
 if($_SESSION['level']!='admin'){
 	$_SESSION['pesan'] = "Anda tidak berhak mengakses halaman tersebut";
-	header('location:/spk_tugasakhir/halaman/404.php');
+	header('location:/spkumrohhajidela/halaman/404.php');
 }
 	// if($_SESSION['level'] == 'superadmin'){
 	// 	header('location:/spk_tugasakhir/halaman/admin/index.php');

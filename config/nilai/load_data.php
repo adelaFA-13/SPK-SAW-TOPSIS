@@ -11,7 +11,7 @@ if ($jenis == 'H1')
 	{
     	$datas[] = $data;
 	}
-} elseif ($jenis == 'U1') 
+} elseif ($jenis == 'H1') 
 {
 	$hasil1 = mysqli_query($koneksi, "SELECT* FROM tbl_agent_travel where jenispaket_id = '$jenis'");
 	while($datoo= mysqli_fetch_assoc($hasil1))

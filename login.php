@@ -67,9 +67,9 @@
 
 								<div class="form-group">
 									<label for="password">Password
-										<a href="forgot.html" class="float-right">
+										<!-- <a href="forgot.html" class="float-right">
 											Forgot Password?
-										</a>
+										</a> -->
 									</label>
 									<input id="password" type="password" class="form-control" name="password" required data-eye>
 								    <div class="invalid-feedback">
@@ -95,9 +95,9 @@
 							</form>
 						</div>
 					</div>
-					<div class="footer">
+					<!-- <div class="footer">
 						Copyright &copy; 2019 &mdash; Your Company 
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>

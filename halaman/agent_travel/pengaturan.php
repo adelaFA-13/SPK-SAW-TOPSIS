@@ -5,6 +5,7 @@ $agent      = mysqli_query($koneksi, "select * from tbl_agent_travel WHERE trave
 $lokasi		= mysqli_query($koneksi, "Select * from tbl_lokasi WHERE travel_id = '$id'");
 $row        = mysqli_fetch_array($agent);
 $data		=mysqli_fetch_array($lokasi);
+
 ?>
 
 
@@ -24,13 +25,14 @@ $data		=mysqli_fetch_array($lokasi);
 							<div class="row form-group mx-auto">
 							<?php	
 								$a = "config/agent/".$row['foto'];
-								if(file_exists($a))
+								if(!empty($row['foto']))
 								{
-									 ?> 
-								<img src=<?php echo "config/agent/".$row['foto']; ?>  width="150" class="img-profile rounded-circle text-center mx-auto" alt="Foto">
+								?> 
+									<img src=<?php echo "config/agent/".$row['foto']; ?>  width="150" class="img-profile rounded-circle text-center mx-auto" alt="Foto">
+	
 									 <?php 
 								}else {
-									?> <img src="img/undraw_posting_photo.svg" width="300" class="img-profile rounded-circle text-center mx-auto" alt="Foto"><?php
+									?> <i class="fa fa-user rounded-circle text-center mx-auto" alt="Foto"></i><?php
 								}
 								?> 
 							</div>
@@ -93,24 +95,24 @@ $data		=mysqli_fetch_array($lokasi);
 		              <div class="card shadow mb-4">
 		                <!-- Card Header - -->
 		                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-		                  <h6 class="m-0 font-weight-bold text-primary">Profile Agent Travel</h6>
+		                  <h6 class="m-0 font-weight-bold text-primary">Profile Travel Agent</h6>
 		                </div>
 		                <!-- Card Body -->
 		                <div class="card-body" style="height: 42rem;">
 		                  <form action="config/agent/proses_input_lanjutan.php" method="POST">
 						  <input type="hidden" class="form-control" name="travel_id" value="<?php echo $id; ?>" placeholder="Nama">
 								<div class="form-group">
-									<label for="">Nomor Izin</label>
-									<input type="text" name="no_izin" value="<?php echo $row['nomor_izin'];?>" class="form-control" placeholder="Nomor Izin">
+									<label for="">Nomor SK</label>
+									<input type="text" name="no_izin" value="<?php echo $row['nomor_izin'];?>" class="form-control" placeholder="Nomor SK">
 								</div>
 								<div class="form-row">
 									<div class="form-group col-lg-6">
 										<label for="">Tahun Mulai</label>
-										<input type="text" name="thn_izin"  value="<?php echo $row['thn_izin'];?>" class="form-control" placeholder="Tahun Mulai">
+										<input type="text" name="thn_izin"  value="<?php echo date('d-m-Y',strtotime($row['thn_izin']));?>" class="form-control" placeholder="Tahun Mulai">
 									</div>
 									<div class="form-group col-lg-6">
 										<label for="">Tahun Berakhir</label>
-										<input type="text" name="thn_habis" placeholder="Tahun Berakhir" value="<?php echo $row['thn_habis'];?>" class="form-control">
+										<input type="text" name="thn_habis" placeholder="Tahun Berakhir" value="<?php echo date("d-m-Y",strtotime($row['thn_habis']));?>" class="form-control">
 									</div>
 								</div>
 								<div class="form-group">
@@ -118,7 +120,7 @@ $data		=mysqli_fetch_array($lokasi);
 									<input type="text" name="no_hp" placeholder="Nomor HandPhone" value="<?php echo $row['No_HP'];?>" class="form-control">
 								</div>
 								<div class="form-group">
-									<label for="">Deskripsi Agent Travel</label>
+									<label for="">Deskripsi Travel Agent</label>
 									<textarea name="deskripsi" id="" class="form-control"><?php echo $row['deskripsi'];?></textarea>
 								</div>
 								<div class="form-row">

@@ -11,16 +11,16 @@ if(!empty($_POST['Fasilitasnew'])){
     $QUERY ="INSERT INTO `tbl_data_fasilitas`(`id`, `fasilitas_id`,`nama_fasilitas`, `travel_id`) VALUES ('','$fasilitas_id','$nama_fasilitas', '$travel_id')";
     
     if(mysqli_query($koneksi,$QUERY)){
-        $_SESSION['pesan'] = "Berhasil tambah data program_bantuan";
-        header('location:/spk_tugasakhir1/index.php?url=data_fasilitas');
+
+        header('location:/spkumrohhajidela/index.php?url=data_fasilitas');
     }else{
         $_SESSION['pesan'] = "Gagal menambahkan data";
     
-        header('location:/spk_tugasakhir1/index.php?url=data_paket');
+        echo "<script language='javascript'>alert('Proses Memasukkan Data Travel Agent Gagal');window.history.back();</script>";
     }
+}else{
+    
+    echo "<script language='javascript'>alert('Lets Entry your Facilities First!');window.history.back();</script>";
 }
-
-
  
-
-  ?>
+?>

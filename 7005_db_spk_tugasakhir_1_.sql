@@ -134,9 +134,9 @@ CREATE TABLE `tbl_data_paket` (
 
 INSERT INTO `tbl_data_paket` (`id`, `paket_data_id`, `paket_detail`, `nama_paket`, `harga_paket`, `id_jumlah_fasilitas`, `id_jumlah_pelayanan`, `travel_id`, `jenispaket_id`, `testimoni_id`, `sertifikat_id`, `nama_hotel`, `bintang_hotel`, `objek_wisata`, `nama_maskapai`, `rute_penerbangan`, `jumlah_hari`) VALUES
 (23, 'P0001', '', 'dina paket 1', 52000000, 'BF0001', 'BS0001', 'T4', 'H1', '', '', '', 'bintang 5', 'maroko', '', 'Langsung', '30'),
-(24, 'P0002', '', 'dina paket 2', 21550000, 'BF0002', 'BS0002', 'T4', 'U1', '', '', '', 'bintang 4', 'turkey', '', 'Tidak Langsung', '10'),
-(25, 'P0003', '', 'paket amira 1', 230000000, 'BF0003', 'BS0003', 'T2', 'U1', '', '', '', 'bintang 2', '', '', 'Langsung', '11'),
-(26, 'P0004', '', 'paket amira 2', 200000000, 'BF0004', 'BS0004', 'T2', 'U1', '', '', '', 'bintang 1', '', '', 'Tidak Langsung', '9'),
+(24, 'P0002', '', 'dina paket 2', 21550000, 'BF0002', 'BS0002', 'T4', 'H1', '', '', '', 'bintang 4', 'turkey', '', 'Tidak Langsung', '10'),
+(25, 'P0003', '', 'paket amira 1', 230000000, 'BF0003', 'BS0003', 'T2', 'H1', '', '', '', 'bintang 2', '', '', 'Langsung', '11'),
+(26, 'P0004', '', 'paket amira 2', 200000000, 'BF0004', 'BS0004', 'T2', 'H1', '', '', '', 'bintang 1', '', '', 'Tidak Langsung', '9'),
 (38, 'P0005', '', 'ziu paket', 300000000, 'BF0005', 'BS0005', 'T5', 'H1', '', '', '', 'bintang 3', 'Tidak Ada', '', 'Tidak Langsung', '29');
 
 -- --------------------------------------------------------
@@ -180,7 +180,7 @@ CREATE TABLE `tbl_jenis_paket` (
 
 INSERT INTO `tbl_jenis_paket` (`id`, `jenispaket_id`, `jenispaket`) VALUES
 (1, 'H1', 'Haji'),
-(2, 'U1', 'Umrah');
+(2, 'H1', 'Umrah');
 
 -- --------------------------------------------------------
 

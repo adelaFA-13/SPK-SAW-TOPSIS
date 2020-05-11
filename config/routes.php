@@ -13,21 +13,27 @@ if(isset($_GET['url'])){
 			$include[]='register_user.php';
 	// Khusus dashboard //
 		case 'admin_dashboard':
+			$req[]='config/admin/load_data.php';
 			$inlude[]= 'halaman/dashboard.php';
 			break;	
 		case 'agent_travel_dashboard':
 			$include[] = 'halaman/agent_travel_dashboard.php';
 			break;
 		case 'dashboard':
+			$req[]='config/admin/load_data.php';
 			$include[] = 'halaman/dashboard.php';
 			break;
 		case 'tamu':
 			$include[] ='halaman/pengguna_dashboard.php';
 			break;
 		case 'member_dashboard':
+			$req[]='config/koneksi.php';
+			$req[]='config/pengguna/load_data.php';
 			$include[]='halaman/member_dashboard.php';
 		break;
 		case 'pengguna_dashboard':
+			$req[]='config/koneksi.php';
+			$req[]='config/pengguna/load_data.php';
 			$include[]='pengguna_dashboard.php';
 		break;
 	// end of khusus dashboard//
@@ -35,8 +41,9 @@ if(isset($_GET['url'])){
 		case 'register':
 			$include[]='register_travel.php';
 		break;
-		case 'home':
+		case 'Home':
 			$page ="home";
+			$req[]='config/pengguna/load_data.php';
 			$include[]='halaman/member_dashboard.php';
 		break;
 		case 'Halaman_agent_travel':
@@ -48,16 +55,30 @@ if(isset($_GET['url'])){
 			$req[]='config/pengguna/detail_travelagent.php';
 			$include[]='halaman/member/detail_agent.php';
 		break;
+		case 'detail_data_paket':
+			$req[]='config/pengguna/detail_paket.php';
+			$include[]='halaman/member/detail_paket.php';
+		break;
+		case 'detail_travel_agent':
+			$include[]='halaman/admin/detail.php';
+		break;
 		case 'Halaman_Pencarian':
 			$include[]='halaman/member/pencarian.php';
 		break;
 		case 'Halaman_Pencarian_Umrah':
-			$req[]='config/pencarian/load_pencarian_umrah.php';
+	
 			$include[]='halaman/member/pencarian_umrah.php';
 		break;
 		case 'Halaman_Pencarian_Haji':
 		
 			$include[]='halaman/member/pencarian_haji.php';
+		break;
+		case 'Halaman_Pencarian_Umrah_member':
+			$include[]='halaman/member/pencarian_umrah_member.php';
+		break;
+		case 'Halaman_Pencarian_Haji_member':
+		
+			$include[]='halaman/member/pencarian_haji_member.php';
 		break;
 	//end of pengguna
 
@@ -70,40 +91,77 @@ if(isset($_GET['url'])){
 	// end of pengaturan profile //
 
 	// khusus untuk admin //
-		case 'data_customer':
+		case'data_member_lihat':
+			$include[] ='halaman/customer/read.php';
+		break; 
+		case 'data_member':
 			include 'config/middleware/superadmin.php';
 			$req[] = 'config/customer/load_data.php';
 			$include[] = 'halaman/customer/index.php';
 			break;		
+		case'paket_haji_lihat':
+			$include[] ='halaman/paket_haji/read.php';
+		break;
+		case'paket_umrah_lihat':
+			$include[] ='halaman/paket_umrah/read.php';
+		break;
 		case 'data_agent_travel':
 			include 'config/middleware/superadmin.php';
 			$req[] = 'config/admin/load_data.php';
 			$include[] = 'halaman/admin/agent_travel.php';
 			break;
+		case 'data_agent_travel_lihat':
+			//$req[]=
+			$include[]='halaman/admin/agent_travel_lihat.php';
+			break;
+		case 'data_agent_travel_edit':
+			//$req[]=
+			$include[]='halaman/admin/agent_travel_edit.php';
+			break;
 		case 'data_paket_haji':
+			$req[]='config/paket_haji/load_data.php';
 			$include[] ='halaman/paket_haji/lihat.php';
 			break;
 		case 'data_paket_umrah':
+			$req[]='config/paket_umrah/load_data.php';
 			$include[] ='halaman/paket_umrah/lihat.php';
 			break;
 		case 'data_kriteria':
 			$req[] = 'config/kriteria/load_data.php';	
 			$include[] ='halaman/kriteria_2/read.php';
 			break;
+		case 'halaman_subkriteria':
+			//$req[] = 'config/kriteria/load_data.php';	
+			$include[] ='halaman/kriteria_2/subkriteria.php';
+			break;
 		case 'tambah_kriteria':
 			$include[] ='halaman/kriteria_2/create.php';
 			break;
-		case 'data_nilai':
-			$req[] ='config/nilai/perhitungan.php';
+		case 'data_nilai_haji':
+			$req[] = 'config/koneksi.php';
+			$req[] ='config/nilai/perhitungan_haji.php';
 			$include[] = 'halaman/nilai/lihat.php';
+			break;
+		case 'Halaman_Proses':
+			$req[] = 'config/koneksi.php';
+			$include[] ='config/nilai/proses_haji.php';
+			break;
+		case 'Halaman_Proses_Umrah':
+				$req[] = 'config/koneksi.php';
+				$include[] ='config/nilai/proses_umrah.php';
+		break;
+		case 'data_nilai_umrah':
+			$req[] = 'config/koneksi.php';
+			$req[] ='config/nilai/perhitungan_umrah.php';
+			$include[] = 'halaman/nilai/lihat_umrah.php';
 			break;
 		case 'Data_Proses':
 			$include[] = 'halaman/perhitungan/index.php';
 			break;
 		case 'data_agent_create':
-			$include[] = 'halaman/agent_travel/create.php';
+			$include[] = 'halaman/admin/agent_travel_create.php';
 			break;
-		case 'data_customer_create':
+		case 'data_member_create':
 			$include[] = 'halaman/customer/create.php';
 			break;
 		case 'data_customer_read':
@@ -119,6 +177,13 @@ if(isset($_GET['url'])){
 			include 'config/middleware/agent_travel.php';
 			$include[]='halaman/paket_travel/index.php';
 			break;
+		case 'Halaman_Paket_Lihat':
+			$req[]= 'config/pelayanan/load_data.php';
+			$req[]= 'config/Fasilitas/load_data.php';
+			$req[]= 'config/paket_travel/load_detail.php';
+			$req[]= 'config/paket_travel/session_fasilitas.php';
+			$include[]='halaman/paket_travel/read.php';
+			break;
 		case 'paket_travel_tambah':
 			$req[]= 'config/pelayanan/load_data.php';
 			$req[]= 'config/Fasilitas/load_data.php';
@@ -126,6 +191,9 @@ if(isset($_GET['url'])){
 			$req[]= 'config/paket_travel/session_fasilitas.php';
 			include 'config/middleware/agent_travel.php';
 			$include[]='halaman/paket_travel/create.php';
+			break;
+		case 'delete_paket':
+			$include[]='halaman/paket_travel/delete.php';
 			break;
 		case 'data_fasilitas':
 			$req[]= 'config/Fasilitas/load_data.php';
@@ -150,6 +218,9 @@ if(isset($_GET['url'])){
 	case 'Profile':
 		$include[]='halaman/member/Profile.php';
 		break;
+	case 'log_out':
+		$include[]='config/logout_member.php';
+	break;	
 	//enf of untuk member
 	
 		case 'data_pengguna':

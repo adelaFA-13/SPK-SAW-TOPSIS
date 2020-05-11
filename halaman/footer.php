@@ -16,6 +16,7 @@
 
     <!-- jQuery -->
     <script src="asset/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="asset/sweetalert/dist/sweetalert2.all.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="asset/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -59,10 +60,10 @@
     <script>
 
       $(document).ready(function() {
-        var table = document.getElementById("dataTable");
-        if(table){
-          jQuery('#dataTable').ddTableFilter();
-        }
+        // var table = document.getElementById("dataTable");
+        // if(table){
+        //   jQuery('#dataTable').ddTableFilter();
+        // }
         
         table = document.getElementById("dataTables-example");
         if(table){
@@ -134,6 +135,57 @@
     });
 </script>
 
+<script>
+$(document).ready(function(){
+  $('#btn_delete').click(function(){
+    if(confirm("Yakin Mendelte Fasilitas?")){
+      var id=[];
+      $(':checkbox:checked').each(function(i){
+        id[i] = $(this).val();
+      });
+
+      if(id.length === 0){ //if array empty
+        alert("Belum Ada Fasilitas yang terselek");window.location.go(-1);
+      }
+      else{
+        $.ajax({
+          url:"config/paket_travel/delete.php",
+          method:"POST",
+          data:{id:id},
+          success:function()
+          {
+            for(var i=0; i<id.length; i++){
+              $('tr#'+id[i]+'').css('background-color','#ccc');
+              $('tr#'+id[i]+'').fadeOut('slow');
+            }
+          }
+        });
+      }
+    }
+    else{
+     
+    }
+  });
+});
+</script>
+
+    <script>
+        jQuery(document).ready(function($){
+            $('.edit-link').on('click',function(){
+               var getLink = $(this).attr('href');
+                swal({
+                        title: ' Alert',
+                        text: 'Edit Data?',
+                        html: true,
+                        confirmButtonColor: '#d9534f',
+                        showCancelButton: true,
+                        },function(){
+                        window.location.href = getLink
+                    });
+                return false;
+            });
+        });
+    </script>
 
 
 
@@ -156,6 +208,46 @@
         }
     });
   }
+
+  // function kirimSubkriteria(){
+  //   //var reg = /^[A=-Z0-9._%+-]+@([A-Z0-9]+\.)+[A-Z]{2,4}$/i;
+  //   var namaSubkriteria =$('#namaSubkriteria').val();
+  //   var bobotSubkriteria=$('#bobotSubkriteria').val();
+
+  //   $if(namaSubkriteria.trim() == ''){
+  //     alert('Masukkan Nama Subkriteria.');
+  //     $('#namaSubkriteria').focus();
+  //     return false;
+  //   }else if(bobotSubkriteria.trim() == ''){
+  //     alert('Masukkan Bobot Subkriteria.');
+  //     $('#bobotSubkriteria').focus();
+  //     return false;
+  //   }else{
+  //     $.ajax({
+  //       type:"POST",
+  //       url:"config/kriteria/proses_tambah_subkriteria.php";
+  //       dataType: "JSON",
+  //       data:
+  //         'Submit=1$id'+id+'&nama'+$namaSubkriteria+'&bobot'+$bobotSubkriteria,
+  //         beforeSend:function(){
+  //           ('.submitBtn').attr("disabled","disabled");
+  //           $('.modal-body').css('opacity','0.5');
+  //         },
+  //         success:function(msg){
+  //           if(msg== 'ok'){
+  //             $('#namaSubkriteria').val('');
+  //             $('#bobotSubkriteria').val('');
+  //             $('statusMsg').html('<span style="color:green;">Subkriteria Berhadil Dimasukkan.</span>');
+  //           }else{
+  //             $('statusMsg').html('<span style="color:red;">Subkriteria Tidak Berhasil Dimasukkan.</span>');
+  //           }
+
+  //           ('submitBtn').removeAttr("disabled");
+  //           $('.modal-body').css('opacity','');
+  //         }
+  //     });
+  //   }
+  // }
 
   function getDataNilai(comp){
     var nilai = comp.options[comp.selectedIndex].text;

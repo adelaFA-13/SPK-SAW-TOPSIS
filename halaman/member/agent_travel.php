@@ -20,7 +20,7 @@
           <div class="row">
               <div class="col-lg-12 pl-lg-0">
                 <div class="card card-details mb-3">
-                  <h1>Daftar Agent Travel</h1>
+                  <h1>Daftar Travel Agent</h1>
                   <p>
                     
                   </p>
@@ -31,13 +31,13 @@
                         <tr>
                           <td scope="col" width="10">No</td>
                           <td scope="col"></td>
-                          <td scope="col">Nama Agent Travel</td>
+                          <td scope="col">Nama Travel Agent</td>
                         </tr>
                       </thead>
                       <tbody>
                         <?php
                         $i=1;
-                        $a = "config/agent/".$data['foto'];
+                        $a = "config/agent/".$data['foto'];                     
                         if(!isset($data)):
                           foreach($datas as $data):
                         ?>
@@ -45,13 +45,13 @@
                           <td><?php echo $i++;?>
                           </td>
                           <?php 
-                          if(empty(file_exists($a)))
+                          if(empty($data['foto']))
                             {?>
-                             <td class="align-middle"><img src="img/undraw_posting_photo.svg" width="150" class="img-profile rounded-circle text-center mx-auto" alt="Foto"></td>
+                             <td class="align-middle"><img src="img/no_images.png" width="70" hight="40" class="img-profile rounded-circle text-center mx-auto" alt="Foto"></td>
                             <?php
                             }else{
                             ?>
-                            <td class="align-middle"><img src=<?php echo "config/agent/".$data['foto']; ?>  width="150" class="img-profile rounded-circle text-center mx-auto" alt="Foto"></td>
+                            <td class="align-middle"><img src=<?php echo "config/agent/".$data['foto']; ?>  width="150" hight="50"class="img-profile rounded-circle text-center mx-auto" alt="Foto"></td>
                            </td><?php                           
                             }                          
                           ?>
@@ -65,13 +65,13 @@
                     </table>
                   </div>
                   </div>
-                  <div class="member mt-3">
+                  <!-- <div class="member mt-3">
                     <h3 class="mt-2 mb-0">Note</h3>
                     <p class="disclaimer mb-0">
                       You are only able to invite member that has registered in
                       Nomads.
                     </p>
-                  </div>
+                  </div> -->
                 </div>
               </div>
               <!-- masukan Nilai bobot-->

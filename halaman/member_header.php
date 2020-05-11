@@ -19,14 +19,15 @@
       href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700&display=swap"
       rel="stylesheet"
     />
-    <link
-      href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="assets/libraries/xzoom/dist/xzoom.css" />
+    <link rel="stylesheet" href="Asset3/libraries/xzoom/dist/xzoom.css" />
+    
     <link href="asset2/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="asset/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
     <link href="asset2/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+      <!-- link rating -->
+    
+      <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="Asset3/star/dist/starrr.css">
   </head>
   <body>
     <!-- Semantic elements -->
@@ -49,26 +50,12 @@
 
         <!-- Menu -->
         <div class="collapse navbar-collapse" id="navb">
-          <ul class="navbar-nav ml-auto mr-3" id="myDiv">
+          <ul class="navbar-nav ml-auto mr-3">
             <li class="nav-item mx-md-2">
-              <a class="nav-link  active" href="index.php?url=member_dashboard">Home</a>
+              <a class="nav-link active" href="index.php?url=Home">Home</a>
             </li>
             <li class="nav-item mx-md-2">
               <a class="nav-link" href="index.php?url=Halaman_agent_travel">Agent Travel</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-               
-                id="navbardrop"
-                data-toggle="dropdown"
-              >
-                Paket Travel
-              </a>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Paket Haji</a>
-                <a class="dropdown-item" href="#">Paket Umrah</a>
-              </div>
             </li>
           </ul>
 
@@ -81,7 +68,7 @@
           <!-- Desktop Button -->
           <form action = "index.php?url=Profile" class="form-inline my-2 my-lg-0 d-none d-md-block">
             <a href="index.php?url=Profile"  class="btn btn-login btn-navbar-right my-2 my-sm-0 px-4">
-            <i class="fa fa-user"></i> Profile
+            <i class="fa fa-user"></i> Log Out
             </a>
           
         </div>

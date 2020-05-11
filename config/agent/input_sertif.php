@@ -17,7 +17,7 @@ if(isset($_POST['tombol']))
             $keterangan = $_POST['ket'];
             $travel = $_POST['travel_id'];
             mysqli_query($koneksi,"insert into tbl_sertifikat (sertifikat,travel_id,tipe_gambar,ukuran_gambar,ket) values ('$image','$travel','$file_type','$file_size','$keterangan')");
-            header('location:/spk_tugasakhir/index.php?url=data_sertifikat');
+            header('location:/spkumrohhajidela/index.php?url=data_sertifikat');
         }
         else
         {

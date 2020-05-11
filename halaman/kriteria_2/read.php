@@ -26,15 +26,11 @@
                    <table class="table table-bordered" id="dataTable-kriteria" widht="100%" cellspacing="0">
                         <thead>
                             <tr align="center">
-                                <th rowspan="2" width="30">No</th>
-                                <th rowspan="2">Kriteria</th>
-                                <th rowspan="2">Jenis</th>
-                                <th rowspan="2" width="50">Bobot</th>
-                                <th colspan="2">subktiteria</th>
-                            </tr>
-                            <tr>
-                                <th width="150">Nama Subkriteria</th>
-                                <th width="50">Bobot</th>
+                                <th width="30">Id</th>
+                                <th >Kriteria</th>
+                                <th >Jenis</th>
+                                <th >Bobot</th>
+                                <th >subktiteria</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -55,8 +51,12 @@
                                   </div>
                                 </a>
                               </td>
-                              <td><?php echo $data['nama_subkriteria'] ?></td>
-                              <td><?php echo $data['bobot_subkriteria'] ?></td>
+                              <td align="center">
+                                
+                                <a href="index.php?url=halaman_subkriteria&kriteria=<?php echo $data['nama'];?>&id=<?php echo $data['id']?>" class="btn btn-xs btn-info" title="Lihat subkriteria">
+                                <i class="fa fa-eye"></i>
+                                </a>                  
+                             </td>
                             </tr>
                           <?php endforeach ?>
                         </tbody>

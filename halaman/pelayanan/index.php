@@ -10,8 +10,7 @@ if($id_pelayanan){
     $nilai =substr($id_pelayanan[0],1);
     $kode =(int)$nilai;
     
-    $kode=$kode+1; 
-    echo $kode;   
+    $kode=$kode+1;    
     $auto_kode = "S".str_pad($kode,4,"0",STR_PAD_LEFT);
 }else{
     $auto_kode ='S001';
@@ -50,10 +49,10 @@ if($id_pelayanan){
                                         <th><?php echo $data['pelayanan_id'];?></th>
                                         <td><?php echo $data['nama_pelayanan']?></td>
                                         <td align="center">
-                                        <a href="data_agent_edit.html" class="btn btn-xs btn-warning" title="Edit">
+                                        <!-- <a  class="btn btn-xs btn-warning" title="Edit">
                                             <i class="fas fa-pen"></i>
-                                        </a>
-                                        <a href="data_agent_delete.html" class="btn btn-xs btn-danger" title="delete" onclick="retrun confirm('Apakah anda yakin ingin menghapus?')">
+                                        </a> -->
+                                        <a href="config/pelayanan/proses_hapus.php?url=Travel=<?echo$data['travel_id']?>&id=<?php echo$data['pelayanan_id']?>" onclick="return confirm('Apa anda yakin menghapus pelayanan ini?')"class="btn btn-xs btn-danger" title="delete" onclick="retrun confirm('Apakah anda yakin ingin menghapus?')">
                                             <i class="fas fa-trash-alt"></i>
                                         </a>
                                     </td>

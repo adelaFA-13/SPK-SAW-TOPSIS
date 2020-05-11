@@ -7,7 +7,7 @@
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item" aria-current="page">
-                    Agent Travel 
+                    Travel Agent 
                   </li>
                   <li class="breadcrumb-item active" aria-current="page">
                     Details
@@ -27,15 +27,25 @@
                 <div class="gallery">
                   <div class="xzoom-container">
                     <?php $id=$_GET['id'];
-                        $sqlgaleri1=mysqli_query($koneksi,"SELECT * FROM tbl_galeri  ORDER BY id ASC LIMIT 1");
+                        $sqlgaleri1=mysqli_query($koneksi,"SELECT * FROM tbl_galeri where travel_id='$id' ORDER BY id ASC LIMIT 1");
                        $datagaleri= mysqli_fetch_assoc($sqlgaleri1);
+                        if (!isset($datagaleri['foto']))
+                        {
+                          ?> 
+                          <img
+                              class="xzoom"
+                              id="xzoom-default"
+                              src="img/no_image.jpg"
+                              xoriginal="A"<?php echo "config/galeri/".$datagaleri['foto']; ?>"
+                          />   
+                       <?php }else{
                         ?>
                     <img
                       class="xzoom"
                       id="xzoom-default"
                       src="<?php echo "config/galeri/".$datagaleri['foto']; ?>"
                       xoriginal="A"<?php echo "config/galeri/".$datagaleri['foto']; ?>"
-                    />
+                       /> <?php } ?>
                     <div class="xzoom-thumbs">
                     <?php
                     $id=$_GET['id'];
@@ -54,7 +64,7 @@
                     </div>
                   
                   </div>
-                  <h2>Deskrisi Agent Travel</h2>
+                  <h2>Deskrisi Travel</h2>
                   <p><?php echo $data['deskripsi'] ?>
                   </p>
                 </div>
@@ -90,7 +100,7 @@
                             <td><?php echo $x++?></td>
                             <td><?php echo $data['nama_paket']?></td>
                             <td><?php echo $data['jenispaket']?></td>
-                            <td><a href="data_paket_haji_read.html" class="btn btn-xs btn-info" title="lihat">
+                            <td><a href="index.php?url=detail_data_paket&id=<?php echo $data['paket_data_id']?>&Travel=<?php echo$data['travel_id']; ?>" class="btn btn-xs btn-info" title="lihat">
                               <i class="fa fa-eye"></i>
                           </a></td>
                         </tr>
@@ -139,7 +149,16 @@
                     <table class="trip-informations">
                         <tr>
                         <th width="50%">Alamat</th>
-                        <td width="50%" class="text-right"><?php echo $data['alamat'] ?></td>
+                        </tr>
+                        <tr>
+                        <?php 
+                         include 'config/koneksi.php';
+                         $id = $_GET['id'];
+                        $sql_lokasi=mysqli_query($koneksi,"SELECT * FROM tbl_lokasi WHERE travel_id='$id'");
+                        $data_lokasi=mysqli_fetch_assoc($sql_lokasi);
+                        
+                        ?>
+                        <td width="50%" class="text-right"><a href="http://maps.google.com/maps?q=<?php echo$data_lokasi['lat']?>,<?php echo$data_lokasi['long']?>"><?php echo $data['alamat'] ?></a></td>
                         </tr>
                     </table>
                     <?php 
@@ -204,9 +223,20 @@
                 <!-- end of halaman sertifikat-->
                 <!-- Halaman Testimoni-->
                 <hr/>
+                <?php
+                $query4 =mysqli_query($koneksi, "SELECT DISTINCT travel_id, paket_data_id, COUNT(nilai) as byk_data, sum(nilai) as jmlh_nilai FROM tbl_data_paket LEFT JOIN tbl_testimoni USING(travel_id) WHERE travel_id='$id' GROUP BY paket_data_id");
+                $row=mysqli_fetch_assoc($query4);
+
+                if(empty($row['jmlh_nilai']) && empty($row['byk_data'])){
+                  $nilai_testimoni= 0;
+                }else{
+                  $nilai_testimoni=$row['jmlh_nilai']/$row['byk_data'];	
+                }
+
+                ?>
                 <div class="card card-details">
                     <h2 align="center">Testimoni</h2>
-                    <h2 align ="center"><?php echo round($nilai_testimoni,3).'/5('.$row['byk_data'].'ratings)'?></h2>
+                    <h2 align ="center"><?php echo round($nilai_testimoni,1).'/5('.$row['byk_data'].'ratings)'?></h2>
                     <hr/>
                     <table class="trip-informations">
                         <tr>

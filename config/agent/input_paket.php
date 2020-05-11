@@ -20,7 +20,7 @@ if(mysqli_query($koneksi,$sql)){
 }else{
 	$_SESSION['pesan'] = "Gagal tambah data program_bantuan";
 }
-header('location:/spk_tugasakhir/index.php?url=pengaturan_agent');
+header('location:/spkumrohhajidela/index.php?url=pengaturan_agent');
 
 
  ?>

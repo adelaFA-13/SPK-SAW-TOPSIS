@@ -1,6 +1,6 @@
 
 <header class="text-center">
-      <h1>
+      <h1> 
         Sistem Pendukung Keputusan
         <br />
         Pemilihan Agent Travel Haji & Umrah
@@ -92,11 +92,11 @@
         <div class="container">
           <div class="row">
             <div class="col text-center">
-              <h2>Anda mempunyai Agent Travel Haji dan Umrah ?</h2>
+              <h2>Anda mempunyai Travel Agent Haji dan Umrah ?</h2>
               <p>
-                Moments were giving them
+                Ikut bergabung untuk memudahkan dalam mencari Travel Agent Anda!
                 <br />
-                the best experience
+                Coba Aja Dulu
               </p>
               <a href="register_travel.php" class="btn btn-warning px-4 mt-4">
                 Get Started

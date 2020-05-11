@@ -16,8 +16,8 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Jumlah Agent</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">10</div> <!--Contoh jumlah agent-->
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Jumlah Travel Agent</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo getJmlhAgent()?></div> <!--Contoh jumlah agent-->
                     </div>
                     <div class="col-auto">
                       <i class="fa fa-user fa-2x text-gray-300"></i>
@@ -34,7 +34,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Paket Umrah</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">5</div><!-- Contoh Jumlah Paket Umrah-->
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"></div><!-- Contoh Jumlah Paket Umrah-->
                     </div>
                     <div class="col-auto">
                       <i class="fa fa-th-list fa-2x text-gray-300"></i>

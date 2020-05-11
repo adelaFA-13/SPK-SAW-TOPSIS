@@ -1,7 +1,7 @@
 <?php
 function getJumlahAlternatif() {
 	include 'config/koneksi.php';
-	$query  = "SELECT count(*) FROM tbl_data_paket WHERE jenispaket_id='U1'";
+	$query  = "SELECT count(*) FROM tbl_data_paket WHERE jenispaket_id='H1'";
 	$result = mysqli_query($koneksi, $query);
 	while ($row = mysqli_fetch_array($result)) {
 		$jmlData = $row[0];
@@ -19,7 +19,7 @@ function nilai_tertinggi($nilai_tinggi,$nilai_dihitung)
 }
 function getDataPaket($kode_paket){
 	include 'config/koneksi.php';
-	$query  = "SELECT paket_data_id FROM tbl_data_paket WHERE jenispaket_id='U1' ORDER BY id" ;
+	$query  = "SELECT paket_data_id FROM tbl_data_paket WHERE jenispaket_id='H1' ORDER BY id" ;
 	$result = mysqli_query($koneksi, $query);
 	while ($row = mysqli_fetch_assoc($result)) {
 		$kd_paket[] = $row['paket_data_id'];
@@ -30,7 +30,7 @@ function getDataPaket($kode_paket){
 
 function getDataPaketCoba(){
 	include 'config/koneksi.php';
-	$query  = "SELECT paket_data_id FROM tbl_data_paket WHERE jenispaket_id='U1' ORDER BY id" ;
+	$query  = "SELECT paket_data_id FROM tbl_data_paket WHERE jenispaket_id='H1' ORDER BY id" ;
 	$result = mysqli_query($koneksi, $query);
 	while ($row = mysqli_fetch_assoc($result)) {
 		$kd_paket[] = $row['paket_data_id'];
@@ -41,7 +41,7 @@ function getDataPaketCoba(){
 
 function getDataTravel($kode_travel){
 	include 'config/koneksi.php';
-	$query  = "SELECT travel_id FROM tbl_data_paket WHERE jenispaket_id='U1' ORDER BY id" ;
+	$query  = "SELECT travel_id FROM tbl_data_paket WHERE jenispaket_id='H1' ORDER BY id" ;
 	$result = mysqli_query($koneksi, $query);
 	while ($row = mysqli_fetch_assoc($result)) {
 		$kd_travel[] = $row['travel_id'];
@@ -53,7 +53,7 @@ function getDataTravel($kode_travel){
 
 function getAgentTravel($nama){
 	include 'config/koneksi.php';
-	$query ="SELECT tbl_agent_travel.nama as nama FROM tbl_data_paket INNER JOIN tbl_agent_travel USING(travel_id) WHERE jenispaket_id='U1' ORDER BY tbl_data_paket.id";
+	$query ="SELECT tbl_agent_travel.nama as nama FROM tbl_data_paket INNER JOIN tbl_agent_travel USING(travel_id) WHERE jenispaket_id='H1' ORDER BY tbl_data_paket.id";
 	$result = mysqli_query($koneksi, $query);
 	while ($row = mysqli_fetch_assoc($result)) {
 		$nm_agent[] = $row['nama'];
@@ -63,7 +63,7 @@ function getAgentTravel($nama){
 
 function getDataHari($kd_hari){
 	include 'config/koneksi.php';
-	$query  = "SELECT * FROM tbl_data_paket WHERE jenispaket_id='U1' ORDER BY id";
+	$query  = "SELECT * FROM tbl_data_paket WHERE jenispaket_id='H1' ORDER BY id";
 	$result = mysqli_query($koneksi,$query);
 	while ($row = mysqli_fetch_assoc($result)) {
 		$hari[] = $row;
@@ -71,7 +71,7 @@ function getDataHari($kd_hari){
 	$i=0;
 	
 		for($i=0;$i<count($hari);$i++){
-			if($hari[$i]['jenispaket_id'] == "U1"){
+			if($hari[$i]['jenispaket_id'] == "H1"){
 			if($hari[$i]['jumlah_hari'] ==  10){
 
 	            $nilaihari[$i] =3;
@@ -114,7 +114,7 @@ function getDataHari($kd_hari){
 
 function getKelasHotel($kd_hotel){
 include 'koneksi.php';
-	$query  = "SELECT bintang_hotel FROM tbl_data_paket WHERE jenispaket_id='U1'' ORDER BY id";
+	$query  = "SELECT bintang_hotel FROM tbl_data_paket WHERE jenispaket_id='H1'' ORDER BY id";
 	$result = mysqli_query($koneksi,$query);
 	while ($row = mysqli_fetch_assoc($result)) {
 		$hotel[] = $row['bintang_hotel'];
@@ -150,7 +150,7 @@ include 'koneksi.php';
 
 function getRutePenerbangan($kd_pesawat){
 include 'koneksi.php';
-	$query  = "SELECT rute_penerbangan FROM tbl_data_paket WHERE jenispaket_id='U1' ORDER BY id";
+	$query  = "SELECT rute_penerbangan FROM tbl_data_paket WHERE jenispaket_id='H1' ORDER BY id";
 	$result = mysqli_query($koneksi,$query);
 	while ($row = mysqli_fetch_assoc($result)) {
 		$pesawat[] = $row['rute_penerbangan'];
@@ -175,7 +175,7 @@ include 'koneksi.php';
 
 function getObjekWisata($kd_wisata){
 include 'koneksi.php';
-	$query  = "SELECT objek_wisata FROM tbl_data_paket WHERE jenispaket_id='U1' ORDER BY id";
+	$query  = "SELECT objek_wisata FROM tbl_data_paket WHERE jenispaket_id='H1' ORDER BY id";
 	$result = mysqli_query($koneksi,$query);
 	while ($row = mysqli_fetch_assoc($result)) {
 		$wisata[] = $row['objek_wisata'];
@@ -193,7 +193,7 @@ include 'koneksi.php';
 
 function getPelayanan($kd_pel){
 include 'koneksi.php';
-	$query =mysqli_query($koneksi, "SELECT tbl_data_paket.paket_data_id, COUNT(id_jumlah_pelayanan) as jumlah_pelayanan FROM tbl_jumlah_pelayanan LEFT JOIN tbl_agent_travel USING(travel_id) LEFT JOIN tbl_data_paket USING(id_jumlah_pelayanan) LEFT JOIN tbl_data_pelayanan USING(pelayanan_id) WHERE jenispaket_id='U1' GROUP BY tbl_data_paket.id");
+	$query =mysqli_query($koneksi, "SELECT tbl_data_paket.paket_data_id, COUNT(id_jumlah_pelayanan) as jumlah_pelayanan FROM tbl_jumlah_pelayanan LEFT JOIN tbl_agent_travel USING(travel_id) LEFT JOIN tbl_data_paket USING(id_jumlah_pelayanan) LEFT JOIN tbl_data_pelayanan USING(pelayanan_id) WHERE jenispaket_id='H1' GROUP BY tbl_data_paket.id");
 
 	$n=getJumlahAlternatif();
 	$max=0;
@@ -237,7 +237,7 @@ include 'koneksi.php';
 
 function getFasilitas($kd_fasil){
 include 'koneksi.php';
-	$query =mysqli_query($koneksi, "SELECT tbl_data_paket.paket_data_id, COUNT(id_jumlah_fasilitas) as jumlah_fasilitas FROM tbl_jumlah_fasilitas JOIN tbl_agent_travel USING(travel_id) JOIN tbl_data_paket USING(id_jumlah_fasilitas) JOIN tbl_data_fasilitas USING(fasilitas_id) WHERE jenispaket_id='U1' GROUP BY tbl_data_paket.id");
+	$query =mysqli_query($koneksi, "SELECT tbl_data_paket.paket_data_id, COUNT(id_jumlah_fasilitas) as jumlah_fasilitas FROM tbl_jumlah_fasilitas JOIN tbl_agent_travel USING(travel_id) JOIN tbl_data_paket USING(id_jumlah_fasilitas) JOIN tbl_data_fasilitas USING(fasilitas_id) WHERE jenispaket_id='H1' GROUP BY tbl_data_paket.id");
 
 	$n=getJumlahAlternatif();
 	$max=0;
@@ -283,7 +283,7 @@ include 'koneksi.php';
 
 function getTestimoni($kd_testi){
 	include 'config/koneksi.php';
-	$query =mysqli_query($koneksi, "SELECT DISTINCT travel_id, paket_data_id, tbl_testimoni.testimoni_id, id_member, nilai, COUNT(DISTINCT nilai) as byk_data, sum(DISTINCT nilai) as jmlh_nilai FROM tbl_data_paket LEFT JOIN tbl_testimoni USING(travel_id) WHERE jenispaket_id='U1' GROUP BY paket_data_id");
+	$query =mysqli_query($koneksi, "SELECT DISTINCT travel_id, paket_data_id, tbl_testimoni.testimoni_id, id_member, nilai, COUNT(DISTINCT nilai) as byk_data, sum(DISTINCT nilai) as jmlh_nilai FROM tbl_data_paket LEFT JOIN tbl_testimoni USING(travel_id) WHERE jenispaket_id='H1' GROUP BY paket_data_id");
 	while ($row=mysqli_fetch_assoc($query)) {
 		$data[]=$row;
 	}
@@ -326,7 +326,7 @@ function getTestimoni($kd_testi){
 
 function getHarga($kd_harga){
 	include 'config/koneksi.php';
-	$query=mysqli_query($koneksi,"SELECT paket_data_id, harga_paket from tbl_data_paket WHERE jenispaket_id='U1' GROUP by paket_data_id");
+	$query=mysqli_query($koneksi,"SELECT paket_data_id, harga_paket from tbl_data_paket WHERE jenispaket_id='H1' GROUP by paket_data_id");
 	while ($row=mysqli_fetch_assoc($query)) {
 		$data[] = $row;
 	}
@@ -336,7 +336,7 @@ function getHarga($kd_harga){
 }
 function getKeamanan($kd_keamanan){
 	include'koneksi.php';
-	$query=mysqli_query($koneksi,"SELECT DISTINCT paket_data_id, thn_habis, travel_id FROM tbl_data_paket INNER JOIN tbl_agent_travel USING(travel_id) WHERE jenispaket_id='U1' GROUP BY paket_data_id");
+	$query=mysqli_query($koneksi,"SELECT DISTINCT paket_data_id, thn_habis, travel_id FROM tbl_data_paket INNER JOIN tbl_agent_travel USING(travel_id) WHERE jenispaket_id='H1' GROUP BY paket_data_id");
 	while ($row =mysqli_fetch_assoc($query)) {
 		
 			$habis = new DateTime($row['thn_habis']);
@@ -362,7 +362,7 @@ function getKeamanan($kd_keamanan){
 
 function getSertifikat($kd_sertif){
 	include 'config/koneksi.php';
-	$query=mysqli_query($koneksi,"SELECT DISTINCT paket_data_id, COUNT(DISTINCT sertifikat) as jmlh_sertif from tbl_data_paket LEFT JOIN tbl_sertifikat USING(travel_id) WHERE jenispaket_id='U1' GROUP BY paket_data_id");
+	$query=mysqli_query($koneksi,"SELECT DISTINCT paket_data_id, COUNT(DISTINCT sertifikat) as jmlh_sertif from tbl_data_paket LEFT JOIN tbl_sertifikat USING(travel_id) WHERE jenispaket_id='H1' GROUP BY paket_data_id");
 	//deklarasi:
 	$i=0;
 	$max =0;

@@ -10,9 +10,9 @@ if($id_user){
     $kode = (int)$nilai;
 
     $kode=$kode+1;
-    $auto_user = "T".str_pad($kode,"0",2, STR_PAD_LEFT);
+    $auto_user = "T".str_pad($kode,4,"0", STR_PAD_LEFT);
 } else{
-    $auto_user ="T1";
+    $auto_user ="T001";
 }
 ?>
 <!DOCTYPE html>
@@ -21,7 +21,7 @@ if($id_user){
 	<meta charset="utf-8">
 	<meta name="author" content="Kodinger">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>My Login Page &mdash; Bootstrap 4 Login Page Snippet</title>
+	<title>Halaman Registrasi Member</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="asset4/css/my-login.css">
 </head>
@@ -74,7 +74,7 @@ if($id_user){
 								</div>
 
 								<div class="form-group m-0">
-									<button type="submit" class="btn btn-primary btn-block">
+									<button type="submit" name="submit"class="btn btn-primary btn-block">
 										Register
 									</button>
 								</div>
@@ -84,9 +84,9 @@ if($id_user){
 							</form>
 						</div>
 					</div>
-					<div class="footer">
+					<!-- <div class="footer">
 						Copyright &copy; 2017 &mdash; Your Company 
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>

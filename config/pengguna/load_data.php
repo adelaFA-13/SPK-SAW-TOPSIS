@@ -2,7 +2,7 @@
 
 function getJmlhHaji(){
 	include 'config/koneksi.php';
-	$query=mysqli_query($koneksi, "SELECT count(paket_data_id) as banyak_paket FROM tbl_data_paket WHERE jenispaket_id <> 'H1'");
+	$query=mysqli_query($koneksi, "SELECT count(paket_data_id) as banyak_paket FROM tbl_data_paket WHERE jenispaket_id='H1'");
 	while($data=mysqli_fetch_assoc($query)){
 		$datas =implode($data);
 	}
@@ -12,7 +12,7 @@ function getJmlhHaji(){
 
 function getJmlhUmrah(){
 	include 'config/koneksi.php';
-	$query=mysqli_query($koneksi, "SELECT count(paket_data_id) as banyak_paket FROM tbl_data_paket WHERE jenispaket_id <> 'U1'");
+	$query=mysqli_query($koneksi, "SELECT count(paket_data_id) as banyak_paket FROM tbl_data_paket WHERE jenispaket_id='U1'");
 	while($data=mysqli_fetch_assoc($query)){
 		$datas =implode($data);
 	}

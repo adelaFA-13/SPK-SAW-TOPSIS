@@ -1,6 +1,20 @@
 <?php
 	include '../koneksi.php';
 	session_start();
+	$sql = "SELECT MAX(`testimoni_id`) FROM `tbl_testimoni`";
+	$query=mysqli_query($koneksi,$sql);
+
+	$id_testimoni= mysqli_fetch_array($query);
+	if($id_testimoni){
+		$nilai=substr($id_testimoni[0],1);
+		$kode = (int)$nilai;
+		
+		$kode=$kode+1;
+		$auto_kode = "M".str_pad($kode,4,"0", STR_PAD_LEFT);
+	} else{
+		$auto_kode ="M001";
+	}
+
 	$nilai = $_POST['nilai'];
 
 	//user_id di session adalah id user yang login
@@ -27,18 +41,20 @@
 		}
 	}
 	if(count($data) == 0){
-		$last_testimoni_id = mysqli_query($koneksi, "SELECT `testimoni_id` FROM `tbl_testimoni` ORDER BY `testimoni_id` DESC LIMIT 1");
-		$testimoni_id = '';
-		if($last_testimoni_id != false){
-			while ($row = mysqli_fetch_assoc($last_testimoni_id)) {
-				$testimoni_id = $row['testimoni_id'];
-			}
-		}
-		$id_num = [];
-		$regex = "/[1-9]{1}+[0-9]{0,10}/";
-		preg_match($regex, $testimoni_id, $id_num);
-		$testimoni_id = preg_replace($regex, ($id_num[0]+1), $testimoni_id);
-		$query = "INSERT INTO `tbl_testimoni` (`id`,`id_member`,`nilai`,`travel_id`,`tanggal`,`testimoni_id`) VALUES ('','$id_member','$nilai','$travel_id','$tanggal','$testimoni_id')";
+
+		// $last_testimoni_id = mysqli_query($koneksi, "SELECT `testimoni_id` FROM `tbl_testimoni` ORDER BY `testimoni_id` DESC LIMIT 1");
+		// $testimoni_id = '';
+		// if($last_testimoni_id != false){
+		// 	while ($row = mysqli_fetch_assoc($last_testimoni_id)) {
+		// 		$testimoni_id = $row['testimoni_id'];
+		// 	}
+		// }
+		// $id_num = [];
+		// $regex = "/[1-9]{1}+[0-9]{0,10}/";
+		// preg_match($regex, $testimoni_id, $id_num);
+		// $testimoni_id = preg_replace($regex, ($id_num[0]+1), $testimoni_id);
+		
+		$query = "INSERT INTO `tbl_testimoni` (`id`,`id_member`,`nilai`,`travel_id`,`tanggal`) VALUES ('','$id_member','$nilai','$travel_id','$tanggal')";
   	}else{
     	$query = "UPDATE `tbl_testimoni` SET `nilai`='$nilai' WHERE `id_member`='$id_member'";
  	}

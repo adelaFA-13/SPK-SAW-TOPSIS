@@ -52,24 +52,10 @@
         <div class="collapse navbar-collapse" id="navb">
           <ul class="navbar-nav ml-auto mr-3">
             <li class="nav-item mx-md-2">
-              <a class="nav-link active" href="index.php?url=Home">Home</a>
+              <a class="nav-link" href="index.php?url=Home">Home</a>
             </li>
             <li class="nav-item mx-md-2">
               <a class="nav-link" href="index.php?url=Halaman_agent_travel">Agent Travel</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-               
-                id="navbardrop"
-                data-toggle="dropdown"
-              >
-                Paket Travel
-              </a>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Paket Haji</a>
-                <a class="dropdown-item" href="#">Paket Umrah</a>
-              </div>
             </li>
           </ul>
 

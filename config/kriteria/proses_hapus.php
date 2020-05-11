@@ -8,5 +8,5 @@ if (mysqli_query($koneksi, "DELETE FROM kriteria where id= '$id'"))
 else
 	$_SESSION['pesan'] = "Gagal hapus data kriteria";
 
-header('location:/spk_pro/index.php?url=data_kriteria');
+header('location:/spkumrohhajidela/index.php?url=data_kriteria');
  ?>

@@ -5,7 +5,7 @@
             <div class="row">
               <div class="col-12">
                 <div class="row">
-                  <div class="col-12 col-lg-3">
+                  <!-- <div class="col-12 col-lg-3">
                     <h5>FEATURES</h5>
                     <ul class="list-unstyled">
                       <li>
@@ -37,14 +37,14 @@
                       <li><a href="#">Help Center</a></li>
                       <li><a href="#">Media</a></li>
                     </ul>
-                  </div>
+                  </div> -->
                   <div class="col-12 col-lg-3">
-                    <h5>Get Connected</h5>
+                    <h5>Get Contact</h5>
                     <ul class="list-unstyled">
-                      <li>Jakarta Selatan</li>
-                      <li>Indonesia</li>
-                      <li>0821 - 2222 - 8888</li>
-                      <li>support@nomads.id</li>
+                      <li>Adela Farah Aglia</li>
+                      <li>Palembang</li>
+                      <li>0899 - 9991 - 543</li>
+                      <li>Ketanahsuci.spk@gmail.com</li>
                     </ul>
                   </div>
                 </div>
@@ -58,7 +58,7 @@
           class="row border-top justify-content-center align-items-center pt-4"
         >
           <div class="col-auto text-gray-500 font-weight-light">
-            2019 Copyright Nomads • All rights reserved • Made in Jakarta
+            2019 Copyright Adela Farah Aglia • All rights reserved • Made in Palembang
           </div>
         </div>
       </div>
@@ -197,5 +197,62 @@
     });
   });
 </script>
+
+<script>
+
+      $(document).ready(function() {
+        // var table = document.getElementById("dataTable");
+        // if(table){
+        //   jQuery('#dataTable').ddTableFilter();
+        // }
+        
+        table = document.getElementById("dataTables-example");
+        if(table){
+          $('#dataTables-example').DataTable({
+              responsive: true
+          });
+        }
+        
+        table = document.getElementById("dataTables-result");
+        if(table){
+          $('#dataTables-result').DataTable({
+              responsive: true,
+              order : []
+          });
+        }
+
+        table = document.getElementById("dataTables-ranking");
+        if(table){
+          $('#dataTables-ranking').DataTable({
+              responsive: true,
+              order : []
+          });
+        }
+        
+        table = document.getElementById("dataTables-kecocokan");
+        if(table){
+          $('#dataTables-kecocokan').DataTable({
+              responsive: true,
+              order : []
+          });
+        }
+
+        table = document.getElementById("dataTable-kriteria");
+        if(table){
+          $('#dataTable-kriteria').DataTable({
+              responsive: true,
+              order : []
+          });
+        }
+      });
+  
+  function btn_remove(argument) {
+      var r = confirm("Are You Sure?");
+      if (r == true) {
+          argument.closest('.form-group').remove();
+      }
+      
+  }
+  </script>
 </body>
 </html>

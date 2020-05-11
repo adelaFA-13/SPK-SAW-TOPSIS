@@ -39,7 +39,7 @@
                         <tr>
                           <td>
                             <img
-                              src="assets/images/avatar-4.png"
+                              src="assets/images/avatar-4.png"ro
                               alt=""
                               height="60"
                             />

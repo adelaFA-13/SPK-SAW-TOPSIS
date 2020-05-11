@@ -30,7 +30,7 @@
                                         <div class="row form-group">
 							  <input type="file" name="gambar" class="font-weight-bold text-primary mx-auto">Ganti Foto</input>
 							</div>
-                                        <div class="form-row">
+                                <div class="form-row">
 									<div class="form-group col-xl-3 text-center">
 										<label for="">Keterangan</label>
 									</div>
@@ -49,11 +49,8 @@
 		              </div>
 		            </div>
                                     </div>
-                                    </div>
-                                </div>
                             </div>
-                            <!-- close modal -->
-                        </div>
+                              <!-- close modal -->
                      </div>
                     <?php 
                     include 'config/koneksi.php';
@@ -83,10 +80,8 @@
                                         <td><?php echo $row['ket'] ?></td>
                                         <td align="center"><img src="halaman/sertifikat/image_view.php?id=<?php echo $row['id']; ?>" width="100"/></<td>
                                         <td align="center">
-                                        <a href="data_agent_edit.html" class="btn btn-xs btn-warning" title="Edit">
-                                            <i class="fas fa-pen"></i>
-                                        </a>
-                                        <a href="data_agent_delete.html" class="btn btn-xs btn-danger" title="delete" onclick="retrun confirm('Apakah anda yakin ingin menghapus?')">
+                                        
+                                        <a href="halaman/sertifikat/delete.php?id=<?php echo $row['id']?>" class="btn btn-xs btn-danger" title="delete" onclick="retrun confirm('Apakah anda yakin ingin menghapus?')">
                                             <i class="fas fa-trash-alt"></i>
                                         </a>
                                     </td>
@@ -102,3 +97,4 @@
 </div>
 <div>
 </div>
+                                        </div>

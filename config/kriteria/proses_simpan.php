@@ -33,25 +33,44 @@ $koneksi = mysqli_connect('localhost','root','','db_spk_tugasakhir(1)') or die(m
 $nama=$_POST['nama'];
 $jenis=$_POST['jenis'];
 
-$subkriteria = $_POST['subkriteria'];
-$sub_nama = $_POST['sub_nama'];
-$sub_bobot = $_POST['sub_bobot'];
+$subkriteria =isset($_POST['subkriteria']) ? $_POST['subkriteria'] : null;
 
-$sql = "INSERT INTO tbl_kriteria(`id`,`nama`,`jenis`) VALUES(NULL,'$nama','$jenis')";
+if($subkriteria){
+	//ada editan lain mungkin
+	$sub_nama= isset($_POST['sub_nama']) ? $_POST['sub_nama'] : null;
+	$sub_bobot = isset($_POST['sub_bobot']) ? $_POST['sub_bobot'] : null;
+}
 
-if(mysqli_query($koneksi,$sql)){
-	if($subkriteria =="Punya"){
+//insert new kriteria
+$sqlInsertNewKriteria = "INSERT INTO tbl_kriteria(`id`,`nama`,`jenis`) VALUES(NULL,'$nama','$jenis')";
+$sqlGetLatestIdIn_tbl_kriteria="SELECT MAX(id) from `tbl_kriteria`";
+
+if(mysqli_query($koneksi,$sqlInsertNewKriteria)){
+	$resultGetLatestId=mysqli_query($koneksi,$sqlGetLatestIdIn_tbl_kriteria);
+	
+	if($resultGetLatestId){
+		$dataLatestId=mysqli_fetch_row($resultGetLatestId);
+		echo $kriteria_id=$dataLatestId[0];
 		
-		for ($i=0; $i < count($sub_nama); $i++) {
-			mysqli_query($koneksi,"INSERT INTO tbl_subkriteria VALUES(NULL,'$nama','$sub_nama[$i]','$sub_bobot[$i]')");
-		}
-	}else{
-		mysqli_query($koneksi,"INSERT INTO tbl_subkriteria VALUES(NULL,'$nama','input','NULL')");
+		if($subkriteria =="Punya"){
+
+			for ($i=0; $i <count($sub_nama); $i++) {
+				mysqli_query($koneksi,"INSERT INTO tbl_subkriteria VALUES(NULL,'$nama','$sub_nama[$i]','$sub_bobot[$i]','$kriteria_id')");
+			}
+		}/*else{
+			mysqli_query($koneksi,"INSERT INTO tbl_subkriteria VALUES(NULL,'$nama','NULL','NULL')");
+		}*/
+		$_SESSION['pesan'] = "Berhasil tambah data kriteria";
+		echo $_SESSION['pesan'];
+		header('location:/spkumrohhajidela/index.php?url=data_kriteria');
 	}
-	$_SESSION['pesan'] = "Berhasil tambah data kriteria";
-    echo $_SESSION['pesan'];
-	// header('location:/spkumrohhajidela/index.php?url=data_kriteria');
- }else{
+	else{
+		$_SESSION['pesan'] = "Gagal tambah data subkriteria";
+		echo $_SESSION['pesan'];
+	}
+	
+ }
+ else{
 	$_SESSION['pesan'] = "Gagal tambah data kriteria";
 	echo $_SESSION['pesan'];
   }

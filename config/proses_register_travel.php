@@ -7,17 +7,34 @@ $email=$_POST['email'];
 $level=$_POST['level'];
 $pass=$_POST['password'];
 
-$sql="INSERT INTO `tbl_login` (`id`,`user_id`,`username`,`email`,`password`,`level`)VALUES(NULL,'$user_id','$username','$email','$pass','$level')";
-$sql1="INSERT INTO `tbl_agent_travel`(`id`,`travel_id`,`nama`) VALUES(NULL,'$user_id','$username')";
 
-if(mysqli_query($koneksi,$sql)){
-    mysqli_query($koneksi,$sql1);
-   $_SESSION['pesan'] = "Berhasil tambah data program_bantuan";
-    header('location:/spk_tugasakhir1/login.php');
+$ceksql=mysqli_query($koneksi,"SELECT * FROM `tbl_login` where `username`='".$username."' OR `email`='".$email."'") or die("error query".mysqli_error());
+if(mysqli_num_rows($ceksql)>=1){
+    echo "<script language='javascript'>alert('Username or email is Already Exist!');window.history.back();</script>";
 }else{
-    $_SESSION['pesan'] = "Gagal menambahkan data";
+    $sql="INSERT INTO `tbl_login` (`id`,`user_id`,`username`,`email`,`password`,`level`)VALUES(NULL,'$user_id','$username','$email','$pass','$level')";
+    $sql1="INSERT INTO `tbl_agent_travel`(`id`,`travel_id`,`status`) VALUES(NULL,'$user_id','belum_aktif')";
     
-    header('location:/spk_tugasakhir1/register_user.php');
+    if(mysqli_query($koneksi,$sql)){
+        mysqli_query($koneksi,$sql1);
+       $_SESSION['pesan'] = "Berhasil tambah data program_bantuan";
+       echo "<script language='javascript'>alert('Register Data Travel Agent Berhasil!');</script>";
+        header('location:/spkumrohhajidela/login.php');
+    }else{
+        $_SESSION['pesan'] = "Gagal menambahkan data";
+        
+        header('location:/spkumrohhajidela/register_user.php');
+    }
 }
 
 ?>
+
+
+
+
+
+
+
+
+
+

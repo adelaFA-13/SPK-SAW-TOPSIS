@@ -8,7 +8,7 @@ $id_fasilitas= mysqli_fetch_array($query);
 if($id_fasilitas){
     $nilai=substr($id_fasilitas[0],1);
     $kode = (int)$nilai;
-    echo $kode;
+    
     $kode=$kode+1;
     $auto_kode = "F".str_pad($kode,4,"0", STR_PAD_LEFT);
 } else{
@@ -48,10 +48,10 @@ if($id_fasilitas){
                                         <td><?php echo $data['fasilitas_id'];?></td>
                                         <td><?php echo $data['nama_fasilitas']; ?></td>
                                         <td align="center">
-                                        <a href="data_agent_edit.html" class="btn btn-xs btn-warning" title="Edit">
+                                        <!-- <a href="data_agent_edit.html" class="btn btn-xs btn-warning" title="Edit">
                                             <i class="fas fa-pen"></i>
-                                        </a>
-                                        <a href="data_agent_delete.html" class="btn btn-xs btn-danger" title="delete" onclick="retrun confirm('Apakah anda yakin ingin menghapus?');">
+                                        </a> -->
+                                        <a href="config/Fasilitas/proses_hapus.php?url=Travel=<?php echo $data['travel_id']?>&kode=<?php echo $data['fasilitas_id'];?>" onclick="return confirm('Yakin Menghapus Data Pelayanan?')" class="btn btn-xs btn-danger" title="delete" onclick="retrun confirm('Apakah anda yakin ingin menghapus?');">
                                             <i class="fas fa-trash-alt"></i>
                                         </a>
                                     </td>

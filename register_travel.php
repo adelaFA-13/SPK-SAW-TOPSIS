@@ -1,4 +1,3 @@
-
 <?php
 include 'config/koneksi.php';
 $sql = "SELECT MAX(`user_id`) FROM `tbl_login` ";
@@ -10,9 +9,9 @@ if($id_user){
     $kode = (int)$nilai;
 
     $kode=$kode+1;
-    $auto_user = "T".str_pad($kode,"0",2, STR_PAD_LEFT);
+    $auto_user = "T".str_pad($kode,4,"0", STR_PAD_LEFT);
 } else{
-    $auto_user ="T1";
+    $auto_user ="T001";
 }
 ?>
 <!DOCTYPE html>
@@ -84,9 +83,9 @@ if($id_user){
 							</form>
 						</div>
 					</div>
-					<div class="footer">
+					<!-- <div class="footer">
 						Copyright &copy; 2017 &mdash; Your Company 
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>

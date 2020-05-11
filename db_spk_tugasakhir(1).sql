@@ -139,7 +139,7 @@ CREATE TABLE `tbl_data_paket` (
 INSERT INTO `tbl_data_paket` (`id`, `paket_data_id`, `paket_detail`, `nama_paket`, `harga_paket`, `id_jumlah_fasilitas`, `id_banyak_pelayanan`, `travel_id`, `jenispaket_id`, `testimoni_id`, `sertifikat_id`, `nama_hotel`, `bintang_hotel`, `objek_wisata`, `nama_maskapai`, `rute_penerbangan`, `jumlah_hari`) VALUES
 (1, 'P0001', '', 'a', 10000, '', '', 'T2', '', '', '', 'mekkah', 'bintang 4', 'turkey', '2', 'Langsung', '11'),
 (3, 'P0002', '', 'b', 10000, '', '', 'T2', 'H1', '', '', 'mekkah', 'bintang 4', 'turkey', '2', 'Langsung', '29'),
-(14, 'P0003', '', 'mana', 0, '', '', 'T2', 'U1', '', '', '', '', '', '', '', '10'),
+(14, 'P0003', '', 'mana', 0, '', '', 'T2', 'H1', '', '', '', '', '', '', '', '10'),
 (15, 'P0004', '', 'murah', 0, 'BF0001', '', 'T2', 'H1', '', '', '', '', '', '', '', '1'),
 (16, 'P0005', '', 'mahal', 0, 'BF0005', '', 'T2', 'H1', '', '', '', '', '', '', '', '2');
 
@@ -182,7 +182,7 @@ CREATE TABLE `tbl_jenis_paket` (
 
 INSERT INTO `tbl_jenis_paket` (`id`, `jenispaket_id`, `jenispaket`) VALUES
 (1, 'H1', 'Haji'),
-(2, 'U1', 'Umrah');
+(2, 'H1', 'Umrah');
 
 -- --------------------------------------------------------
 
